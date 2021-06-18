@@ -32,7 +32,7 @@
         <div class="row">
             <!-- header for location -->
             <div class="col-6">
-                <button class="btn btn-neutral btn-outline-info btn-round m-2 h6">Location</button>
+                <!-- <button class="btn btn-neutral btn-outline-info btn-round m-2 h6">Location</button> -->
             </div>
             <!-- header for status sign up or login -->
             <div class="col-6">
