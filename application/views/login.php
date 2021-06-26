@@ -43,7 +43,7 @@
                       <i class="now-ui-icons users_circle-08"></i>
                     </span>
                   </div>
-                  <input class="form-control h6" name="email" type="text" placeholder="Email">
+                  <input class="form-control h6 text-capitalize" name="email" type="text" placeholder="Email">
                 </div>
                 <div class="input-group no-border input-lg">
                   <div class="input-group-prepend">
@@ -51,7 +51,7 @@
                       <i class="now-ui-icons text_caps-small"></i>
                     </span>
                   </div>
-                  <input class="form-control h6" name="password" type="password" Placeholder="Password">
+                  <input class="form-control h6 text-capitalize" name="password" type="password" Placeholder="Password">
                 </div>
               </div>
               <div class="card-footer text-center">
