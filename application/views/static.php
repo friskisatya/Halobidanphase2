@@ -29,23 +29,42 @@
       $status_admin = $this->session->userdata('status_admin');
     ?>
     <nav>
-        <div class="row fixed-top bg-info">
+        <div class="row">
             <!-- header for location -->
             <div class="col-6">
-                <!-- <button class="btn btn-neutral btn-outline-info btn-round m-2 h6">Location</button> -->
+                <button class="btn btn-neutral btn-outline-info btn-round m-2 h6">Location</button>
             </div>
             <!-- header for status sign up or login -->
             <div class="col-6">
                 <?php if($this->session->userdata('nama')==""){?>
-                <button class="btn btn-neutral btn-outline-primary text-light float-right btn-round m-2 h6 overlay"><i
-                        class="fas fa-user mr-3"></i><a class="text-light" href="<?= base_url('C_login')?>">Daftar/Masuk</a></button>
+                <button class="btn btn-neutral btn-outline-info float-right btn-round m-2 h6 overlay"><i
+                        class="fas fa-user mr-3"></i><a href="<?= base_url('C_login')?>">Daftar/Masuk</a></button>
                 <h5></h5>
                 <?php } else {?>
-                <button class="btn btn-neutral btn-outline-primary text-light float-right btn-round m-2 h6 overlay"
+                <button class="btn btn-neutral btn-outline-info float-right btn-round m-2 h6 overlay"
                     data-toggle="modal" data-target="#logout"><i
                         class="fas fa-user mr-3"></i><?= $this->session->userdata("nama")?></button>
                 <!-- Modal for logout-->
-                
+                <div class="modal fade" id="logout" tabindex="-1" role="dialog" aria-labelledby="logoutLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content rounded">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="logoutLabel">Information</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Apakah anda akan melakukan Logout ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
+                                <a href="<?= base_url('C_login/logout')?>" class="btn btn-info">Konfirmasi</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <?php }?>
             </div>
         </div>
@@ -78,29 +97,6 @@
       <center><a class="nav-link active" href="<?=base_url("C_tentang")?>"><i class="fas fa-info"></i><br>Tentang</a></center>
     </li>
   </ul>
-
-
-
-  <div class="modal fade pt-5 mt-5" id="logout" tabindex="9999" role="dialog" aria-labelledby="logoutLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content rounded">
-            <div class="modal-header">
-                <h5 class="modal-title" id="logoutLabel">Information</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>Apakah anda akan melakukan Logout ?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                <a href="<?= base_url('C_login/logout')?>" class="btn btn-info">Konfirmasi</a>
-            </div>
-        </div>
-    </div>
-</div>
 
     <!--   Core JS Files   -->
     <script src="<?= base_url()?>/assets/js/core/jquery.min.js" type="text/javascript"></script>

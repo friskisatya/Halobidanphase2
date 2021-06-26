@@ -2,142 +2,150 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url()?>/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="<?= base_url()?>/assets/img/favicon.png">
-    <title>
-        BidanKu
-    </title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/29747a5742.js" crossorigin="anonymous"></script>
-    <!-- Nucleo Icons -->
-    <link href="<?= base_url()?>/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link href="<?= base_url()?>/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="<?= base_url()?>/assets/demo/demo.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url()?>/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="<?= base_url()?>/assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Hai Bidan
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
+    name='viewport' />
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- CSS Files -->
+  <link href="<?= base_url()?>/assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="<?= base_url()?>/assets/css/now-ui-kit.css?v=1.3.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="<?= base_url()?>/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
-<body class="">
-<nav class="navbar navbar-expand-lg bg-danger d-block sticky-top">
-
-<div class="container">
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-bar navbar-kebab"></span>
-    <span class="navbar-toggler-bar navbar-kebab"></span>
-    <span class="navbar-toggler-bar navbar-kebab"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav float-right">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Beranda<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-        <div class="dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Admin Aplikasi
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="<?=base_url()?>/C_setup_klinik/index_web">Setup Klinik</a>
-    <a class="dropdown-item" href="<?=base_url()?>/C_setup_fasilitas/index_web">Setup Fasilitas Klinik</a>
-    <a class="dropdown-item" href="<?=base_url()?>/C_setup_bidan/index_web">Setup Tenaga Kerja (Bidan)</a>
-    <a class="dropdown-item" href="<?=base_url()?>/C_setup_artikel/index_web">Setup Artikel</a>
-    <a class="dropdown-item" href="<?=base_url()?>/C_setup_faq/index_web">Setup FAQ</a>
-    <a class="dropdown-item" href="#">Setup Tentang Aplikasi</a>
-  </div>
-</div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?=base_url()?>#layanan">layanan</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?=base_url()?>#FAQ">FAQ</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="<?=base_url()?>#tentang">Tentang</a>
-        </li>
-      </ul>
-      
-    </div>
-    <a href="<?=base_url()?>C_login/index_web" class="btn btn-info btn-round float-right">Daftar / Masuk</a>
-  </div>
-</nav>
-    <!-- End Navbar -->
-    <div class="content">
-    <div>
-        <?= $contents?>
-    </div>
-    <footer class="footer static-bottom">
-      <div class="container-fluid">
-        <div class="copyright float-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>,BidanKu
-        </div>
-
-         <!-- your footer here -->
+<body class="index-page sidebar-collapse">
+<?php 
+      $segment = $this->uri->segment(1);
+      $status_admin = $this->session->userdata('status_admin');
+    ?>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-info fixed-top navbar-transparent " color-on-scroll="400">
+    <div class="container">
+      <div class="navbar-translate">
+        <a class="navbar-brand" href="<?=base_url("C_index")?>/index_web#index" rel="tooltip" title="Hai Bidan Siap Membantumu" data-placement="bottom"
+          target="_blank">
+          Hai Bidan
+        </a>
+        <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-bar top-bar"></span>
+          <span class="navbar-toggler-bar middle-bar"></span>
+          <span class="navbar-toggler-bar bottom-bar"></span>
+        </button>
       </div>
-    </footer>
+      <div class="collapse navbar-collapse justify-content-end" id="navigation"
+        data-nav-image="<?= base_url()?>/assets/img/blurred-image-1.jpg">
+        <ul class="navbar-nav">
+        <?php
+        if($status_admin == "1"){
+        ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url("C_index")?>/setup_web">
+              <i class="now-ui-icons ui-1_settings-gear-63"></i>
+              <p>Setup</p>
+            </a>
+          </li> 
+          <?php
+        }else{
+        ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url("C_index")?>/profile_web">
+              <i class="now-ui-icons business_badge"></i>
+              <p>Profile</p>
+            </a>
+          </li>
+          <?php } ?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url("C_index")?>/index_web#layanan">
+              <i class="now-ui-icons files_paper"></i>
+              <p>Layanan</p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="<?=base_url("C_index")?>/index_web#tentang">
+              <i class="now-ui-icons travel_info"></i>
+              <p>Tentang</p>
+            </a>
+          </li>
+          <?php if($this->session->userdata('nama')==""){?>
+          <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('C_login')?>/index_web">
+              <i class="now-ui-icons users_single-02"></i></i>
+              <p>Login</p>
+            </a>
+          </li>
+            <?php } else {?>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#myModal1">
+              <i class="now-ui-icons users_single-02"></i></i>
+              <p><?= $this->session->userdata("nama")?></p></a>
+          </li>
+          <?php }?>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+        <?= $contents?>
+        </div>
+        <footer class="footer" data-background-color="black">
+          <div class=" container ">
+            <div class="copyright" id="copyright">
+              &copy;
+              <script>
+                document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+              </script>, Hai Bidan
+            </div>
+          </div>
+        </footer>
     </div>
 </div>
+<!-- Mini Modal -->
+<div class="modal fade modal-mini modal-info" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header justify-content-center">
+            <div class="modal-profile">
+              <i class="now-ui-icons users_circle-08"></i>
+            </div>
+          </div>
+          <div class="modal-body">
+            <p>Apakah Anda Yakin Akan Logout ?</p>
+          </div>
+          <div class="modal-footer">
+            <a href="<?= base_url('C_login/logout_web')?>" class="btn btn-danger">Konfirmasi</a>
+            <button type="button" class="btn btn-success text-white" data-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  End Modal -->
     <!-- end navbar for mobile -->
-
+ <!--   Core JS Files   -->
+      <script src="<?= base_url()?>/assets/js/core/jquery.min.js" type="text/javascript"></script>
+      <script src="<?= base_url()?>/assets/js/core/popper.min.js" type="text/javascript"></script>
+      <script src="<?= base_url()?>/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+      <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
+      <script src="<?= base_url()?>/assets/js/plugins/bootstrap-switch.js"></script>
+      <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+      <script src="<?= base_url()?>/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+      <!--  Plugin for the DatePicker, full documentation here: https://github.com/uxsolutions/bootstrap-datepicker -->
+      <script src="<?= base_url()?>/assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+      <!--  Google Maps Plugin    -->
+      <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+      <!-- Control Center for Now Ui Kit: parallax effects, scripts for the example pages etc -->
+      <script src="<?= base_url()?>/assets/js/now-ui-kit.js?v=1.3.0" type="text/javascript"></script>
     <!--   Core JS Files   -->
-    <script src="<?= base_url()?>/assets/js/core/jquery.min.js"></script>
-    <script src="<?= base_url()?>/assets/js/core/popper.min.js"></script>
-    <script src="<?= base_url()?>/assets/js/core/bootstrap.min.js"></script>
-    <script src="<?= base_url()?>/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <!--  Google Maps Plugin    -->
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <!-- Chart JS -->
-    <script src="<?= base_url()?>/assets/js/plugins/chartjs.min.js"></script>
-    <!--  Notifications Plugin    -->
-    <script src="<?= base_url()?>/assets/js/plugins/bootstrap-notify.js"></script>
-    <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="<?= base_url()?>/assets/js/black-dashboard.min.js?v=1.0.0"></script>
-    <!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="<?= base_url()?>/assets/demo/demo.js"></script>
-
-    <!-- <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-      type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-      type="text/javascript" charset="utf-8"></script>
-
-
-    <script type="text/javascript">
-          console.log("location");
-          var platform = new H.service.Platform({
-              "apikey": "ArIn2ITNg38oiRnzukfUFVab_IsEAS5a93VCE_nPkKk"
-          });
-          var geocoder = platform.getSearchService();
-          if(navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(position => {
-                  geocoder.reverseGeocode(
-                      {
-                          limit: 1,
-                          at: position.coords.latitude + "," + position.coords.longitude
-                      }, data => {
-                          console.log(data)
-                          $("#loc").append(
-                            data.items[0].address.district+
-                            ", "+data.items[0].address.city
-                          );
-                      }, error => {
-                          console.error(error);
-                      }
-                  );
-              });
-          } else {
-              console.error("Geolocation is not supported by this browser!");
-          }
-      </script> -->
-
-    
 </body>
 
 </html>

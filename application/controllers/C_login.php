@@ -21,7 +21,8 @@ class C_login extends CI_Controller {
 	}
 	public function index_web()
 	{
-		$this->load->view('login_web');
+		// $this->load->view('login_web');
+		$this->template->load('static_web','login_web');
 	}
 
 
@@ -51,15 +52,42 @@ class C_login extends CI_Controller {
 			redirect('C_login');
 		}	
 	}
+	public function auth_web()
+	{
+
+		$email = $this->input->post('email');
+		$password = md5($this->input->post('password'));
+		$login = $this->M_login->auth($email, $password);
+		if ($login == 0) 
+		{
+			$select = $this->db->query("SELECT * FROM t_login WHERE email = '$email' AND password = '$password'")->row_array();
+			if($select['status_verif']!='1'){
+				$this->session->set_userdata("notif_login","<span class='login100-form-title-1'><font size='3px' color='#c80000'>Email Belum diverifikasi</font></span>");
+				redirect('C_login/index_web');
+			}else{
+				$this->session->set_userdata("email",$email);
+				$this->session->set_userdata("nama",$select["nama"]);
+				$this->session->set_userdata("location",$select["location"]);
+				$this->session->set_userdata("status_admin",$select["status_admin"]);
+				redirect('C_index/index_web');
+			}
+		}
+		else
+		{
+			$this->session->set_userdata("notif_login","<span class='login100-form-title-1'><font size='3px' color='#c80000'>Email Dan Password Tidak Cocok</font></span>");
+			redirect('C_login/index_web');
+		}	
+	}
+
 
 	public function daftar()
 	{
 		$this->load->view('daftar');
 	}
 
-	public function daftar_web()
+	public function signup_web()
 	{
-		$this->load->view('daftar_web');
+		$this->template->load('static_web','daftar_web');
 	}
 
 	public function post_daftar()
@@ -155,6 +183,11 @@ class C_login extends CI_Controller {
 	{
 		$this->session->sess_destroy();
         redirect();
+	}
+	public function logout_web()
+	{
+		$this->session->sess_destroy();
+        redirect('C_index/index_web');
 	}
 
 	// public function lupa_password()

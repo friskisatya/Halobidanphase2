@@ -1,15 +1,30 @@
-<div class="container">
-<h6 class="title float-right btn-sm btn-primary ml-1" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>
-<h6 class="title float-right btn-sm btn-primary" onclick="window.location='<?=base_url('C_setup_fasilitas/create')?>'"><i class="fas fa-plus"></i>&nbsp Tambah</h6>
-<h4 class="title"><i class="fas fa-columns"></i>&nbsp Setup Fasilitas Klinik</h4><br>
+<div class="card-wrapper bg-white text-dark">
+<div class="row m-4">
+<div class="col-6"></div>
+<div class="col-6">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/screening.png" alt="Card image">    
+            </div>
+        </div>
+    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+        <div class="row m-4">
+            <div class="col-8">
+                <h4 class="card-title">Setup Fasilitas Klinik</h4>
+                <p class="card-text"><p class="card-text">Setup Fasilitas Klinik Adalah Setup Untuk Menambahkan Fasilitas Yang Tersedia Di Klinik.</p></p>
+            </div>
+            <div class="col-4">
+            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
 <?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?>
 <div class="table-responsive">
         <table class="table table-shopping">
             <thead>
-                <th>Nama Fasilitas</th>
-                <th>Status</th>
-                <th class="text_right">Aksi</th>
+                <th class="h4">Nama Fasilitas</th>
+                <th class="h4">Status</th>
+                <th class="text_right h6 align-middle bg-info text-white"onclick="window.location='<?=base_url('C_setup_fasilitas/create')?>'"><i class="fas fa-plus"></i>&nbsp Tambah Data</th>
             </thead>
             <tbody>
                     <?php
@@ -29,9 +44,9 @@
                         </td>
                         <td>
                         <button
-                                class="btn btn-primary btn-sm m-1" data-toggle="modal" data-target="#delete" type="button">Hapus</button>
+                                class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#delete" type="button"><i class="fas fa-trash"></i>&nbsp Hapus</button>
                             <button onclick="window.location='<?=base_url('C_setup_fasilitas/edit/').$fas->id_fasilitas?>'"
-                                class="btn btn-primary btn-sm m-1">Ubah</button>
+                            class="btn btn-info btn-sm m-1"><i class="fas fa-edit"></i>&nbsp Ubah</button>      
                         </td>
                     </tr>
                     <?php } ?>

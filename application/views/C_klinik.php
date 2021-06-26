@@ -1,6 +1,5 @@
-<div class="container">
-  <h6 class="title float-right btn-sm btn-primary ml-1" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>
-  <h4 class="title"><i class="fas fa-columns"></i>&nbsp Tambah Data Klinik</h4><br>
+<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+    <h4 class="title"><i class="fas fa-columns"></i>&nbsp Tambah Data Klinik</h4>
   <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
   <form action="<?=base_url('C_setup_klinik/post_create')?>" method="POST" enctype="multipart/form-data">
     <div class="card-body">
@@ -39,7 +38,7 @@
       </div>
       <div class="form-group">
           <label for="status">Fasilitas</label>
-          <button type="button"class="btn btn-primary float-right btn-sm" onclick="$('#modalfasilitas').modal('toggle');">Tambah Fasilitas</button>
+          <button type="button"class="btn btn-info float-right btn-sm" onclick="$('#modalfasilitas').modal('toggle');">Tambah Fasilitas</button>
           <table class="table table-shopping">
             <thead>
             <tr>
@@ -52,7 +51,7 @@
           </table>
       </div>
       <div class="form-group">
-        <span class="btn btn-raised btn-round btn-primary btn-file">
+        <span class="btn btn-raised btn-round btn-info btn-file">
           <span class="fileinput-new">Pilih Gambar</span>
           <input type="file" name="image" onchange="previewFile(this);"/>
         </span>
@@ -76,7 +75,7 @@
       </div> -->
     </div>
     <div class="container text-center">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-success">Submit</button>
     </div>
   </form>
 </div>
@@ -131,7 +130,7 @@
         }else{
           var ls_append = "";
           ls_append += "<tr id='"+id_fasilitas+"'>"+
-            "<td><button id='del"+id_fasilitas+"' onclick='f_row_del("+id_fasilitas+")' class='btn btn-primary btn-sm'>Hapus</button></td>"+
+            "<td><button id='del"+id_fasilitas+"' onclick='f_row_del("+id_fasilitas+")' class='btn btn-danger btn-sm'><i class='fas fa-trash'></i>&nbsp Hapus</button></td>"+
             "<td><input type='hidden' id='input"+id_fasilitas+"' value='"+id_fasilitas+"' name='fasilitas[]'>"+nama_fasilitas+"</td>"
           "</tr>";
           $('#detail').append(ls_append); 

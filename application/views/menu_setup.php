@@ -59,13 +59,13 @@
                 </div>
             </div>
         </div> -->
-        <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_tentang')?>'">
+        <!-- <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_tentang')?>'">
             <div class="card-wrapper">
             <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/calc.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
                 <div class="card-body p-1">
                     <h6 class="card-title">Ubah Tentang Aplikasi</h6>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

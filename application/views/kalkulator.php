@@ -1,11 +1,24 @@
-<div class="container">
-    <h4 class="title"><i class="fas fa-info-circle"></i>&nbsp Kalkulator Kehamilan</h4>
-    <div class="card-wrapper">
-        <div class="card-body">
-            <p class="description">
-                Kalkulator yang membantu memperkirakan hari perkiraan lahir si buah hati
-            </p>
+<!-- banner application -->
+<div class="card-wrapper bg-white text-dark">
+<div class="row m-4">
+<div class="col-6"></div>
+<div class="col-6">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/calc.png" alt="Card image">    
+            </div>
         </div>
+    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+        <div class="row m-4">
+            <div class="col-8">
+                <h4 class="card-title">&nbsp Kalkulator Kehamilan</h4>
+                <p class="card-text"><p class="card-text">Kalkulator yang membantu memperkirakan hari perkiraan lahir si buah hati.</p></p>
+            </div>
+            <div class="col-4">
+            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
+            </div>
+        </div>
+    </div>
+</div>
+        <div class="col">
         <form action="<?=base_url('C_index/kalkulator_kehamilan')?>" method="POST">
             <div class="form-group">
             <label for="tanggal_haid">Tanggal Hari Pertama Haid Terakhir (HPHT)</label>
@@ -17,8 +30,10 @@
             <div class="form-group">
             </div>
 
-            <button type="submit" class="btn btn-sm btn-primary">Hitung perkiraan</button>
+            <button type="submit" class="btn btn-sm btn-success">Hitung perkiraan</button>
         </form>
+        </div>
+       
         <hr>
         <p class="description">Hasil Perkiraan</p>
         Berdasarkan HPHT anda yaitu <?= $tgl_input??"{tanggal input}"?> maka dapat di perkirakan sebagai berikut :<br>

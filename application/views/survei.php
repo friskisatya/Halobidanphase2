@@ -1,7 +1,25 @@
-<div class="container">
+<div class="card-wrapper bg-white text-dark">
+<div class="row m-4">
+<div class="col-6"></div>
+<div class="col-6">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/screening.png" alt="Card image">    
+            </div>
+        </div>
+    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+        <div class="row m-4">
+            <div class="col-8">
+                <h4 class="card-title">Survei Persiapan Kehamilan</h4>
+                <p class="card-text">Jawab Pertanyaan Berikut Secara Jujur dan Sadar Agar Dapat Terdeteksi Tingkat Resiko Kehamilan Anda.</p>
+            </div>
+            <div class="col-4">
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_screening')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+            </div>
+        </div>
+    </div>
+</div>
 <h6 class="title float-right btn-sm btn-primary ml-1" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>
 <h6 class="title float-right btn-sm btn-primary" onclick="window.location='<?=base_url('C_screening/create_survei')?>'"><i class="fas fa-plus"></i>&nbsp Survei</h6>
-<h4 class="title"><i class="fas fa-columns"></i>&nbsp Survei Persiapan Kehamilan</h4><br>
+<h4 class="title"><i class="fas fa-columns"></i>&nbsp </h4><br>
 <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
 <?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?>
 <div class="table-responsive">

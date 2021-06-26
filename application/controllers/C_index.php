@@ -13,6 +13,7 @@ class C_index extends CI_Controller {
         $this->load->model('M_artikel');
         $this->load->model('M_form_informasi_hamil');
         $this->load->model('M_screening');
+        $this->load->model('M_fasilitas');
         //$this->load->model('m_siswa');
     }
 
@@ -21,11 +22,108 @@ class C_index extends CI_Controller {
         $data["rs_artikel"]= $this->M_artikel->getAllartikelActive();
         $this->template->load('static','index',$data);
 	}
+    public function profile_web()
+	{
+        $email = $this->session->userdata('email');
+        $rs_data = $this->db->query("SELECT * FROM t_login where email ='$email'")->result();
+        $birthDate = new DateTime($rs_data[0]->tgl_lahir??"");
+        $today = new DateTime("today");
+        // if ($birthDate > $today) { 
+        //     exit("0 tahun 0 bulan 0 hari");
+        // }
+        $y = $today->diff($birthDate)->y;
+        $m = $today->diff($birthDate)->m;
+        $d = $today->diff($birthDate)->d;
+
+
+        $data["rs_riwayat"] = $this->db->query("
+            select 
+            *
+            from
+            (select distinct tgl_checkup From t_riwayat_checkup a where a.email = '$email' order by a.tgl_checkup desc limit 4)t
+            order by t.tgl_checkup asc
+        ")->result();
+
+
+
+        $data["rs_data"] = $rs_data;
+        $data["usia"] = $y;
+        $email = $this->session->userdata("email");
+        $data["rs_data"] = $this->db->query("
+        SELECT 
+        (select jawaban from t_survei_history b where b.email ='$email' and b.id_survei = a.id_survei ) as jawaban,
+        a.id_survei,
+        a.head,
+        a.body 
+        FROM t_survei a
+        ")->result();
+        $this->template->load('static_web','profile_web',$data);
+	}
     
     public function index_web()
 	{
-        $this->template->load('static_web','index_web');
+         //$data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        //$data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        if($this->input->post('tanggal_haid')!="" && $this->input->post('tanggal_haid')!=null){
+            //echo $this->input->post('tanggal_haid');
+            //echo $this->input->post('siklus_haid');
+            
+
+            $hpt=date_create($this->input->post('tanggal_haid'));
+            //var_dump($hpt);die;
+            // $hp=date_create($this->input->post('tanggal_haid'));
+            //date_add($date,date_interval_create_from_date_string("40 days"));
+            //echo date_format($hpt,"Y-m-d");die
+            // $lama_siklus = $this->input->post('siklus_haid')-21;
+
+            $total = 7;
+            $total2 = 9;
+            $data["tgl_input"]=$this->input->post('tanggal_haid');
+            $a = date_add($hpt,date_interval_create_from_date_string($total." days"));
+            $data["hpt"] = date_add($a,date_interval_create_from_date_string($total2." month"));
+            //echo date_format($date,"Y-m-d");
+            
+            // $data["hp"] = date_add($hp,date_interval_create_from_date_string("14 days"));
+
+            //$sekarang = new DateTime();
+
+            //$perbedaan = $data["hp"]->diff($sekarang);
+
+            //$uj = date_add($hpt,date_interval_create_from_date_string("14 days"))
+
+            //$sekarang = new DateTime();
+
+            // $uj = $data["hp"]->diff($sekarang);
+
+            // $uj_minggu_ex1 = explode(".",($uj->days/7));  
+            
+            // $uj_minggu_ex2 = explode(",",$uj_minggu_ex1[0]);  
+            //var_dump($uj_minggu_ex2[0]);die;
+            // $data["uj_minggu"] = $uj_minggu_ex2[0];  
+
+            // $data["uj_hari"] = $uj->days % 7; 
+
+
+            //var_dump($data["hp"]);die;
+            
+        }else{
+            $data["tgl_input"]="";
+            $data["hp"]="";
+            $data["hpt"]="";
+        }
+        $data['rs_bidan'] = $this->M_bidan->getAllBidan();
+        $data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        $data["rs_data"] = $this->M_screening->getAllScreeningHistory($this->session->userdata('email'));
+        $data["rs_screening"] = $this->M_screening->getAllscreening();
+        $this->template->load('static_web','index_web',$data);
 	}
+    public function setup_web(){
+        $data["rs_klinik"] = $this->M_klinik->getAllKlinik();
+        $data["rs_bidan"] = $this->M_bidan->getAllbidan();
+        $data["rs_fasilitas"] = $this->M_fasilitas->getAllfasilitas();
+        $data["rs_artikel"] = $this->M_artikel->getAllartikel();
+        $this->template->load('static_web','setup_web',$data);
+    }
 
     public function artikel($id)
 	{

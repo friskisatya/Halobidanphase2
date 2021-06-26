@@ -17,6 +17,8 @@
         </div>
     </div>
 </div>
+<?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
+<?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?>
 <div class="table-responsive">
         <table class="table table-shopping">
             <thead>

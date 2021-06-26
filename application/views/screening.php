@@ -1,7 +1,22 @@
-<div class="container">
-<h6 class="title float-right btn-sm btn-primary ml-1" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>
-<h6 class="title float-right btn-sm btn-primary" onclick="window.location='<?=base_url('C_screening/create')?>'"><i class="fas fa-plus"></i>&nbsp Screening</h6>
-<h4 class="title"><i class="fas fa-columns"></i>&nbsp Screening Mandiri</h4><br>
+<div class="card-wrapper bg-white text-dark">
+<div class="row m-4">
+<div class="col-6"></div>
+<div class="col-6">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/screening.png" alt="Card image">    
+            </div>
+        </div>
+    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+        <div class="row m-4">
+            <div class="col-8">
+                <h4 class="card-title">Screening Mandiri</h4>
+                <p class="card-text">Screening Mandiri Adalah layanan Mandiri Untuk Mendeteksi Dini Resiko Kehamilan.</p>
+            </div>
+            <div class="col-4">
+            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
+            </div>
+        </div>
+    </div>
+</div>
 <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
 <?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?>
 <div class="table-responsive">
@@ -9,7 +24,7 @@
             <thead>
                 <th>Tanggal Screening</th>
                 <th>Tingkat Resiko</th>
-                <th class="text_right">Aksi</th>
+                <th class="text_right bg-info text-white h5"onclick="window.location='<?=base_url('C_screening/create')?>'"><i class="fas fa-plus"></i>&nbsp Screening</th>
             </thead>
             <tbody>
               <?php foreach($rs_data as $data) {
@@ -19,9 +34,9 @@
               ?>
 
               <tr>
-                <td><?= $data->tanggal_screening?></td>
-                <td><?= $join[0]->kel_resiko?></td>
-                <td><button class="btn btn-primary btn-sm" onclick="window.location='<?=base_url('C_screening/edit/'.$data->id_screening_history)?>'">Detail</button></td>
+                <td class="align-middle"><?= $data->tanggal_screening?></td>
+                <td class="align-middle"><?= $join[0]->kel_resiko?></td>
+                <td><button class="btn btn-info h6" onclick="window.location='<?=base_url('C_screening/edit/'.$data->id_screening_history)?>'"><i class="fas fa-edit"></i> Detail</button></td>
               </tr>
               <?php } ?>
             </tbody>

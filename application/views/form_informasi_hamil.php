@@ -1,6 +1,21 @@
-<div class="container">
-    <h6 class="title float-right btn-sm btn-primary" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>
-    <h4 class="title"><i class="fas fa-user"></i>&nbsp Informasi Ibu Hamil</h4>
+<!-- banner application -->
+<div class="card-wrapper bg-white text-dark">
+<div class="row m-4">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/dashboard_2.png" alt="Card image">    
+    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+        <div class="row m-4">
+        <div class="col-4"></div>
+            <div class="col-8">
+            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6><br>
+                <h4 class="card-title">&nbsp Informasi Ibu Hamil</h4>
+                <p class="card-text"><p class="card-text">Hai, Silahkan lengkapi Data Ibu Hamil Agar Petugas Kesehatan Lebih Mudah Mengidentifikasi Anda.</p></p>
+            
+            
+            
+            </div>
+        </div>
+    </div>
+</div>
     <?= $this->session->userdata("notif_edit");$this->session->unset_userdata("notif_edit")?>
     <?= $this->session->userdata("notif_login");$this->session->unset_userdata("notif_login")?>
     <form action="<?=base_url('C_form_profile_hamil/post_create')?>" method="POST">
@@ -95,10 +110,10 @@
         </div>
         <div class="row">
         <div class="container text-center col-6">
-            <button type="submit" class="btn btn-primary">Lengkapi</button>
+            <button type="submit" class="btn btn-success h6">Lengkapi</button>
         </div>
         <div class="container text-center col-6">
-            <button type="button" onclick="window.location='<?=base_url('C_form_profile_hamil/download')?>'" class="btn btn-primary">Download</button>
+            <button type="button" onclick="window.location='<?=base_url('C_form_profile_hamil/download')?>'" class="btn btn-info h6">Download</button>
         </div>
         </div>
         
