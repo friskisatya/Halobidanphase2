@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 13, 2021 at 07:52 AM
+-- Generation Time: Jun 26, 2021 at 12:21 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -31,15 +31,18 @@ CREATE TABLE `t_artikel` (
   `id_artikel` int(11) NOT NULL,
   `judul_artikel` varchar(255) NOT NULL,
   `isi_artikel` text NOT NULL,
-  `status_artikel` int(11) NOT NULL
+  `status_artikel` int(11) NOT NULL DEFAULT 1,
+  `img_artikel` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `t_artikel`
 --
 
-INSERT INTO `t_artikel` (`id_artikel`, `judul_artikel`, `isi_artikel`, `status_artikel`) VALUES
-(2, 'tes', 'tes', 1);
+INSERT INTO `t_artikel` (`id_artikel`, `judul_artikel`, `isi_artikel`, `status_artikel`, `img_artikel`) VALUES
+(5, '123', '123', 1, 'a1.png'),
+(6, 'qewqeqweqwe', 'qweqweqwewqee', 1, 'asdsadUntitled.png'),
+(7, 'asd', 'asd', 1, 'asdsadUntitled1.png');
 
 -- --------------------------------------------------------
 
@@ -231,7 +234,7 @@ INSERT INTO `t_login` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `
 (1, 'friski', 'Jakarta', '081212312312', 'friskisatya@mail.com', '202cb962ac59075b964b07152d234b70', '1', 'Jakarta', 1, '', NULL, 0, '', '', '', '', 1),
 (2, 'friski', '', '82130327606', 'friskisatya5@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 1, '', NULL, 0, '', '', '', '', 1),
 (4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', NULL),
-(16, '123', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', 1);
+(16, '123', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1997-02-20', 7, 'Katolik', 'S1/D4', 'A', 'Karyawan Swasta ', 1);
 
 -- --------------------------------------------------------
 
@@ -282,7 +285,8 @@ INSERT INTO `t_riwayat_checkup` (`id`, `tgl_checkup`, `email`) VALUES
 (4, '2021-06-04', 'test@mail.com'),
 (5, '2021-06-04', 'test@mail.com'),
 (6, '2021-06-09', 'test@mail.com'),
-(7, '2021-06-09', 'test@mail.com');
+(7, '2021-06-09', 'test@mail.com'),
+(8, '2021-06-26', 'friskisatya2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -324,7 +328,12 @@ INSERT INTO `t_screening` (`id`, `pertanyaan_screening`) VALUES
 (22, 'Kehamilan Post term( lebih bulan)'),
 (23, 'Perdarahan saat hamil'),
 (24, 'Kejang kejang pada hamil 7 bulan'),
-(25, 'Hamil dengan COVID-19');
+(25, 'Hamil dengan COVID-19'),
+(27, 'Ibu hamil dengan penyakit ginjal'),
+(33, 'Ibu hamil dengan autoimun, SLE'),
+(34, 'Ibu hamil dengan hipertensi kronik'),
+(35, 'Ibu hamil dengan phospholipid syndrom'),
+(36, 'Ketuban pecah sebelum waktunya');
 
 -- --------------------------------------------------------
 
@@ -349,7 +358,9 @@ INSERT INTO `t_screening_history` (`id_screening_history`, `user_id`, `tanggal_s
 (13, 'test@mail.com', '2021-06-03', 98),
 (14, 'test@mail.com', '2021-06-03', 98),
 (15, 'test@mail.com', '2021-06-03', 98),
-(16, 'test@mail.com', '2021-06-03', 98);
+(16, 'test@mail.com', '2021-06-03', 98),
+(17, 'friskisatya2@gmail.com', '2021-06-26', 94),
+(18, 'friskisatya2@gmail.com', '2021-06-26', 2);
 
 -- --------------------------------------------------------
 
@@ -418,7 +429,67 @@ INSERT INTO `t_screening_history_detail` (`id_screening_history_detail`, `id_scr
 (172, 16, 22, 'Y'),
 (173, 16, 23, 'Y'),
 (174, 16, 24, 'Y'),
-(175, 16, 25, 'Y');
+(175, 16, 25, 'Y'),
+(176, 17, 1, 'N'),
+(177, 17, 2, 'Y'),
+(178, 17, 3, 'Y'),
+(179, 17, 4, 'Y'),
+(180, 17, 5, 'Y'),
+(181, 17, 6, 'Y'),
+(182, 17, 7, 'Y'),
+(183, 17, 8, 'Y'),
+(184, 17, 9, 'Y'),
+(185, 17, 10, 'Y'),
+(186, 17, 11, 'Y'),
+(187, 17, 12, 'Y'),
+(188, 17, 13, 'Y'),
+(189, 17, 14, 'Y'),
+(190, 17, 15, 'Y'),
+(191, 17, 16, 'Y'),
+(192, 17, 17, 'Y'),
+(193, 17, 18, 'Y'),
+(194, 17, 19, 'Y'),
+(195, 17, 20, 'Y'),
+(196, 17, 21, 'Y'),
+(197, 17, 22, 'Y'),
+(198, 17, 23, 'Y'),
+(199, 17, 24, 'Y'),
+(200, 17, 25, 'N'),
+(201, 17, 27, 'N'),
+(202, 17, 33, 'N'),
+(203, 17, 34, 'N'),
+(204, 17, 35, 'N'),
+(205, 17, 36, 'N'),
+(206, 18, 1, 'N'),
+(207, 18, 2, 'N'),
+(208, 18, 3, 'N'),
+(209, 18, 4, 'N'),
+(210, 18, 5, 'N'),
+(211, 18, 6, 'N'),
+(212, 18, 7, 'N'),
+(213, 18, 8, 'N'),
+(214, 18, 9, 'N'),
+(215, 18, 10, 'N'),
+(216, 18, 11, 'N'),
+(217, 18, 12, 'N'),
+(218, 18, 13, 'N'),
+(219, 18, 14, 'N'),
+(220, 18, 15, 'N'),
+(221, 18, 16, 'N'),
+(222, 18, 17, 'N'),
+(223, 18, 18, 'N'),
+(224, 18, 19, 'N'),
+(225, 18, 20, 'N'),
+(226, 18, 21, 'N'),
+(227, 18, 22, 'N'),
+(228, 18, 23, 'N'),
+(229, 18, 24, 'N'),
+(230, 18, 25, 'N'),
+(231, 18, 27, 'N'),
+(232, 18, 33, 'N'),
+(233, 18, 34, 'N'),
+(234, 18, 35, 'N'),
+(235, 18, 36, 'N');
 
 -- --------------------------------------------------------
 
@@ -495,7 +566,27 @@ INSERT INTO `t_survei_history` (`id`, `id_survei`, `jawaban`, `email`) VALUES
 (37, 17, 'Y', 'test@mail.com'),
 (38, 18, 'Y', 'test@mail.com'),
 (39, 19, 'Y', 'test@mail.com'),
-(40, 20, 'Y', 'test@mail.com');
+(40, 20, 'Y', 'test@mail.com'),
+(41, 1, 'N', 'friskisatya2@gmail.com'),
+(42, 2, 'Y', 'friskisatya2@gmail.com'),
+(43, 3, 'Y', 'friskisatya2@gmail.com'),
+(44, 4, 'Y', 'friskisatya2@gmail.com'),
+(45, 5, 'Y', 'friskisatya2@gmail.com'),
+(46, 6, 'Y', 'friskisatya2@gmail.com'),
+(47, 7, 'Y', 'friskisatya2@gmail.com'),
+(48, 8, 'Y', 'friskisatya2@gmail.com'),
+(49, 9, 'Y', 'friskisatya2@gmail.com'),
+(50, 10, 'Y', 'friskisatya2@gmail.com'),
+(51, 11, 'Y', 'friskisatya2@gmail.com'),
+(52, 12, 'Y', 'friskisatya2@gmail.com'),
+(53, 13, 'Y', 'friskisatya2@gmail.com'),
+(54, 14, 'Y', 'friskisatya2@gmail.com'),
+(55, 15, 'Y', 'friskisatya2@gmail.com'),
+(56, 16, 'Y', 'friskisatya2@gmail.com'),
+(57, 17, 'Y', 'friskisatya2@gmail.com'),
+(58, 18, 'Y', 'friskisatya2@gmail.com'),
+(59, 19, 'Y', 'friskisatya2@gmail.com'),
+(60, 20, 'Y', 'friskisatya2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -617,7 +708,7 @@ ALTER TABLE `t_tentang`
 -- AUTO_INCREMENT for table `t_artikel`
 --
 ALTER TABLE `t_artikel`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `t_bidan`
@@ -659,25 +750,25 @@ ALTER TABLE `t_login`
 -- AUTO_INCREMENT for table `t_riwayat_checkup`
 --
 ALTER TABLE `t_riwayat_checkup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `t_screening`
 --
 ALTER TABLE `t_screening`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `t_screening_history`
 --
 ALTER TABLE `t_screening_history`
-  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `t_screening_history_detail`
 --
 ALTER TABLE `t_screening_history_detail`
-  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=176;
+  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
 
 --
 -- AUTO_INCREMENT for table `t_survei`
@@ -689,7 +780,7 @@ ALTER TABLE `t_survei`
 -- AUTO_INCREMENT for table `t_survei_history`
 --
 ALTER TABLE `t_survei_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `t_tentang`
