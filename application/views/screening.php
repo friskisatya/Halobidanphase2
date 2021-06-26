@@ -12,7 +12,7 @@
                 <p class="card-text">Screening Mandiri Adalah layanan Mandiri Untuk Mendeteksi Dini Resiko Kehamilan.</p>
             </div>
             <div class="col-4">
-            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
             </div>
         </div>
     </div>

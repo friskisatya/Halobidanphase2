@@ -30,7 +30,7 @@
             <div class="col-2"></div>
             <div class="col-8">
                 <h6 class="text-dark text-center text-capitalize m-2 h5">Usia <?= $usia?> Tahun</h6>
-                <h6 class="text-dark text-center text-capitalize m-2 p-2 h5">Usia Kandungan <?=$usia?> Bulan</h6>
+                <h6 class="text-dark text-center text-capitalize m-2 p-2 h5">Usia Kandungan <?=$rs_data[0]->bln_kehamilan?> Bulan</h6>
             </div>
             <div class="col-2"></div>
         </div>

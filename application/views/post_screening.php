@@ -29,10 +29,10 @@ $join = $this->db->query("SELECT * FROM t_maaping_screening WHERE skor <= '$tota
         <div class="text-center text-dark h1 m-0"><?=$total_skor?></div>
         <h4 class="text-center">Anda Termasuk :</h4>
         <?php if($join[0]->kel_resiko == "RENDAH"){ ?>
-        <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
+        <h4 class="text-center btn-lg btn-success text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
         <?php  } ?>
         <?php if($join[0]->kel_resiko == "TINGGI"){ ?>
-        <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
+        <h4 class="text-center btn-lg btn-primary text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
         <?php  } ?>
         <?php if($join[0]->kel_resiko == "SANGAT TINGGI"){ ?>
         <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>

@@ -40,7 +40,7 @@
                         </td>
                         <td>
                             <p class="text-center text-capitalize">
-                            <?= $artikel->status_artikel=="0"?"Aktif":"Tidak Aktif"?>
+                            <?= $artikel->status_artikel=="1"?"Aktif":"Tidak Aktif"?>
                             </p>
                         </td>
                         <td>

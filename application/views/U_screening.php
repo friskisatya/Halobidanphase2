@@ -19,14 +19,19 @@
 </div>
 <div class="card-wrapper">
     <div class="card-body">
+        <?php
+            $query = $this->db->query("select * From t_screening_history where id_screening_history='$id'")->result();
+            $total_skor = $query[0]->total_score??"";
+            $join = $this->db->query("SELECT * FROM t_maaping_screening WHERE skor <= '$total_skor' and skor_akhir >= '$total_skor'")->result();
+        ?>
         <h4 class="text-center">Skor Anda : </h4>
         <div class="text-center text-dark h1 m-0"><?=$total_skor?></div>
         <h4 class="text-center">Anda Termasuk :</h4>
         <?php if($join[0]->kel_resiko == "RENDAH"){ ?>
-        <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
+        <h4 class="text-center btn-lg btn-success text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
         <?php  } ?>
         <?php if($join[0]->kel_resiko == "TINGGI"){ ?>
-        <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
+        <h4 class="text-center btn-lg btn-primary text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>
         <?php  } ?>
         <?php if($join[0]->kel_resiko == "SANGAT TINGGI"){ ?>
         <h4 class="text-center btn-lg btn-danger text-capitalize text-light">RESIKO <?=$join[0]->kel_resiko?></h4>

@@ -46,7 +46,7 @@
             <div class="row">
                 
                 <div class="col-3">
-                <a href="#" onclick="f_telp('<?=$klinik->telp_klinik?>')">
+                <a href="#" onclick="f_telp('<?=$klinik->telp_klinik?>','<?=$klinik->nama_klinik?>')">
                     <h4 class="btn btn-md btn-info">Telepon <br><br></h4>
                 </a>
                 </div>
@@ -113,7 +113,7 @@
                                     
                                 }else{
                                 ?>
-                                        <button onclick="f_telp_bidan('<?=$bidan->telp_bidan?>')"
+                                        <button onclick="f_telp_bidan('<?=$bidan->telp_bidan?>','<?=$bidan->nama_bidan?>')"
                                         class="btn btn-primary btn-outline-info btn-round">Chat</button>
                                         <?php } ?>
                                     </td>
@@ -144,11 +144,11 @@ function f_location(latitude, longitude) {
     //   window.open("https://wa.me/6282130327606?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
 }
 
-function f_telp(telp) {
-    window.open("https://wa.me/" + telp + "?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
+function f_telp(telp, nama_klinik) {
+    window.open("https://wa.me/" + telp + "?text=Halo+" + nama_klinik +"%2C+saya+<?= $this->session->userdata('nama') ?>+mau+konsultasi+terkait+kehamilan+saya");
 }
 
-function f_telp_bidan(telp) {
-    window.open("https://wa.me/" + telp + "?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
+function f_telp_bidan(telp, nama_dokter) {
+    window.open("https://wa.me/" + telp + "?text=Halo+dokter+" + nama_dokter +"%2C+saya+<?= $this->session->userdata('nama') ?>+mau+konsultasi+terkait+kehamilan+saya");
 }
 </script>

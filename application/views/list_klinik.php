@@ -4,8 +4,7 @@
     <div class="card-img-overlay mt-5 p-0" style="height : 35%">
         <div class="row m-4 mb-0">            
             <div class="col-12">
-                <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i
-                        class="fas fa-arrow-left"></i>&nbsp Back</h6>
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
                     <h4 class="title"><i class="fas fa-hospital-alt"></i>&nbsp Konsultasi Dengan Klinik</h4>
                     <p>Jangkau dan Dapatkan informasi klinik di dekat anda</p>
             </div>

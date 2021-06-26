@@ -13,7 +13,7 @@
                 <p class="card-text"><p class="card-text">Kalkulator yang membantu memperkirakan hari perkiraan lahir si buah hati.</p></p>
             </div>
             <div class="col-4">
-            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
             </div>
         </div>
     </div>
@@ -35,13 +35,14 @@
         </div>
        
         <hr>
+        <?php if(($tgl_input??"")!=""){?>
         <p class="description">Hasil Perkiraan</p>
         Berdasarkan HPHT anda yaitu <?= $tgl_input??"{tanggal input}"?> maka dapat di perkirakan sebagai berikut :<br>
         <!-- Perkiraan Pembuahan : <?=$hp==""?"{tanggal pembuahan}":date_format($hp,"Y-m-d")?><br> -->
         <!-- Perkiraan Usia Janin : <?=$uj_minggu??"0"?> Minggu, <?=$uj_hari??"0"?> Hari   <br> -->
         Perkiraan lahir : <?=$hpt==""?"{tanggal perkiraan lahir}":date_format($hpt,"Y-m-d")?><br>
         Asumsi ini mengakibatkan metode ini mempunyai tingkat kesalahan plus minus 2 minggu.
-        
+        <?php } ?>
     </div>
 </div>
 <!-- end of article -->

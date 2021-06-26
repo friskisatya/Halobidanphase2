@@ -16,8 +16,8 @@
                 <label for="status">Status (Visible)</label>
                 <select name="status" id="status" class="form-control" style=" background: rgba(0, 0, 0, 0.2);">
                 <option <?=$rs_artikel[0]->status_artikel==""?"selected":"" ?> value="">Pilih Status</option>
-                        <option <?=$rs_artikel[0]->status_artikel=="0"?"selected":"" ?> value="0">Aktif</option>
-                        <option <?=$rs_artikel[0]->status_artikel=="1"?"selected":"" ?> value="1">Tidak Aktif</option>
+                        <option <?=$rs_artikel[0]->status_artikel=="1"?"selected":"" ?> value="1">Aktif</option>
+                        <option <?=$rs_artikel[0]->status_artikel=="0"?"selected":"" ?> value="0">Tidak Aktif</option>
                 </select>
             </div>
             <div class="form-group">

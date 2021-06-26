@@ -6,8 +6,7 @@
             <div class="col-3">
             </div>
             <div class="col-9">
-                <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i
-                        class="fas fa-arrow-left"></i>&nbsp Back</h6>
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
                 <h4 class="title"><i class="fas fa-user-nurse"></i>&nbsp Chat Dengan Bidan </h4>
                 <p>Nikmati Kemudahan berkonsultasi dengan bidan yang berpengalaman</p>
             </div>

@@ -10,7 +10,7 @@ class M_artikel extends CI_Model {
 
 	public function getAllartikelActive()
 	{
-		$this->db->where(array('status_artikel'=>0));
+		$this->db->where(array('status_artikel'=>1));
 		return $this->db->get('t_artikel')->result();
 	}
 

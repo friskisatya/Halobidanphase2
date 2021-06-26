@@ -59,18 +59,24 @@
     <!-- tabs article -->
     <h4 class="card-title text-center">Baca Artikel </h4>
     <div class="row text-center flex-nowrap" style="overflow: auto;">
-
-        <div class="card-wrapper col-10 p-2 m-1 bg-light" style="width: 20rem;">
-            <img class="card-img-top"  src="<?= base_url()?>/assets/img/screening.png" alt="Card image cap">
+    <?php foreach($rs_artikel as $artikel){?>
+        <div class="card-wrapper col-10 p-2 m-1 bg-light" style="width: 20rem;" onclick="window.location='<?=base_url('C_index/artikel/'.$artikel->id_artikel)?>'">
+            <?php if($artikel->img_artikel!=""||$artikel->img_artikel!=null) { ?>
+                <img class="card-img-top" height="180" src="<?= base_url('uploads/').$artikel->img_artikel?>" alt="Card image cap">
+            <?php
+            }else{
+            ?>
+                <img class="card-img-top" height="180" src="<?= base_url()?>/assets/img/screening.png" alt="Card image cap">
+            <?php } ?>
             <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <h4 class="card-title"><?= $artikel->judul_artikel?></h4>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's content.</p> -->
+                <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
             </div>
         </div>
        
-        <div class="card-wrapper col-10 p-2 m-1 bg-light" style="width: 20rem;">
+        <!-- <div class="card-wrapper col-10 p-2 m-1 bg-light" style="width: 20rem;">
             <img class="card-img-top"  src="<?= base_url()?>/assets/img/header.jpg" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">Card title</h4>
@@ -78,7 +84,7 @@
                     card's content.</p>
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-        </div>
-
+        </div> -->
+    <?php } ?>
     </div>
 </div>
