@@ -113,7 +113,7 @@ class C_setup_fasilitas extends CI_Controller {
         }else{
             $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
-        redirect("C_setup_fasilitas/index_web");
+        redirect("C_index/setup_web");
 	}
 
     public function post_edit_web($id)
@@ -130,7 +130,7 @@ class C_setup_fasilitas extends CI_Controller {
             $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
 
-        redirect("C_setup_fasilitas/edit_web/".$id);
+        redirect("C_index/setup_web");
 	}
 
     public function delete_web($id)
@@ -144,6 +144,6 @@ class C_setup_fasilitas extends CI_Controller {
             $this->session->set_userdata("notif_delete","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil Dihapus</font></span>");
         }
 
-        redirect("C_setup_fasilitas/index_web");
+        redirect("C_index/setup_web");
 	}
 }
