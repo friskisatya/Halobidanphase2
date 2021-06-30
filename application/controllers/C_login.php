@@ -119,8 +119,8 @@ class C_login extends CI_Controller {
 					'charset'   => 'utf-8',
 					'protocol'  => 'smtp',
 					'smtp_host' => 'smtp.gmail.com',
-					'smtp_user' => '',  // Email gmail
-					'smtp_pass'   => '',  // Password gmail
+					'smtp_user' => 'friskisatya5@gmail.com',  // Email gmail
+					'smtp_pass'   => '06121998nugrahafriski',  // Password gmail
 					'smtp_crypto' => 'ssl',
 					'smtp_port'   => 465,
 					'crlf'    => "\r\n",
