@@ -286,8 +286,8 @@
                   <div class="table-responsive">
                       <table class="table table-shopping">
                           <thead>
-                              <th class="h4">Nama Fasilitas</th>
-                              <th class="h4">Status</th>
+                              <th class="h6">Nama Fasilitas</th>
+                              <th class="h6">Status</th>
                               <th class="text_right h6 align-middle bg-info text-white" type="button"
                                   class="btn btn-outline-info btn-round" onclick="window.location='<?=base_url('C_setup_fasilitas/create_web')?>'"><i class="fas fa-plus"></i>&nbsp Tambah Data</th>
                           </thead>
