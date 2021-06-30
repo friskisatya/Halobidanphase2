@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2021 at 12:21 PM
+-- Generation Time: Jun 30, 2021 at 06:36 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -40,9 +40,8 @@ CREATE TABLE `t_artikel` (
 --
 
 INSERT INTO `t_artikel` (`id_artikel`, `judul_artikel`, `isi_artikel`, `status_artikel`, `img_artikel`) VALUES
-(5, '123', '123', 1, 'a1.png'),
 (6, 'qewqeqweqwe', 'qweqweqwewqee', 1, 'asdsadUntitled.png'),
-(7, 'asd', 'asd', 1, 'asdsadUntitled1.png');
+(10, 'Kuy', 'Juy', 1, 'IMG-20210630-WA00008.jpeg');
 
 -- --------------------------------------------------------
 
@@ -69,7 +68,8 @@ INSERT INTO `t_bidan` (`id_bidan`, `nama_bidan`, `gelar`, `alamat_bidan`, `telp_
 (11, 'Ani Kusniarti', 'S.Tr.Keb.', 'Jl. Raya Jakarta-Bogor, No.km.33, RT.5/RW.02, Curug, Kec. Cimanggis, Kota Depok, Jawa Barat 16453\r\n', '6281319378159', '2021-05-30', 'default-avatar1.png'),
 (12, 'Rita Amelia', 'S.Tr.Keb.', 'Jl. Bambon Raya No. 7B, RT.01/RW.01, Beji Timur, Kec. Beji, Kota Depok, Jawa Barat 16422\r\n', '6281932392215', '2021-05-30', 'default-avatar2.png'),
 (13, 'Eta', 'S.Tr.Keb.', 'Jl. Pemuda No.2, RT.002/RW.008, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431\r\n', '6281511194198', '2021-05-30', 'default-avatar3.png'),
-(14, 'Sri Wahyuni', 'S.Tr.Keb.', 'Jl. Arjuna Raya No.1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411\r\n', '6281380032141', '2021-05-30', 'default-avatar4.png');
+(14, 'Sri Wahyuni', 'S.Tr.Keb.', 'Jl. Arjuna Raya No.1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411\r\n', '6281380032141', '2021-05-30', 'default-avatar4.png'),
+(19, 'Friski satya', 'Amd.Keb', 'Surga', '6282130939511', '2000-06-30', 'IMG-20210630-WA000010.jpeg');
 
 -- --------------------------------------------------------
 
@@ -108,9 +108,10 @@ CREATE TABLE `t_fasilitas` (
 --
 
 INSERT INTO `t_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `status`) VALUES
-(1, 'Tempat Tidur', 0),
+(1, 'Tempat Tidur', 1),
 (2, 'Ruang Inkubator', 0),
-(3, 'Ruang Tunggu Pasien', 0);
+(11, 'Ruang Menyusui', 0),
+(12, 'Mushola', 0);
 
 -- --------------------------------------------------------
 
@@ -139,8 +140,14 @@ INSERT INTO `t_klinik` (`id_klinik`, `nama_klinik`, `alamat_klinik`, `telp_klini
 (21, 'Puskesmas CInere', 'Jl. Cinere Raya No.30 Cinere, Kec. Cinere, Kota Depok, Jawa Barat 16514\r\n', '0217548707', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.340839569007667', '106.780060697387', 'puskesmascinere.png'),
 (22, 'Puskesmas CImanggis', 'Jl. Raya Jakarta-Bogor, No.km.33, RT.5/RW.02, Curug, Kec. Cimanggis, Kota Depok, Jawa Barat 16453', '0218741072', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.3829438905887255', '106.86755197904475', 'puskesmascimanggis.png'),
 (23, 'Puskesmas Beji', 'Jl. Bambon Raya No. 7B, RT.01/RW.01, Beji Timur, Kec. Beji, Kota Depok, Jawa Barat 16422\r\n', '0217757033', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.375616141751538', '106.82184477610838', 'puskesmasbeji.png'),
-(24, 'Puskesmas Pancoran Mas', 'Jl. Pemuda No.2, RT.002/RW.008, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431\r\n', '0217520130', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.401618990988125', '106.81949550892173', 'puskesmaspancoranmas.png'),
-(25, 'Puskesmas Sukma Jaya', 'Jl. Arjuna Raya No.1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411\r\n', '02177824908', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.386888922111522', '106.83837506661038', 'Puskesmassukmajaya.png');
+(25, 'Puskesmas Sukma Jaya', 'Jl. Arjuna Raya No.1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411\r\n', '02177824908', '', 'Pusat Kesehatan Masyarakat, disingkat Puskesmas, adalah fasilitas pelayanan kesehatan yang menyelenggarakan upaya kesehatan masyarakat dan upaya kesehatan perseorangan tingkat pertama, dengan lebih mengutamakan upaya promotif dan preventif, untuk mencapai derajat kesehatan masyarakat yang setinggi-tingginya.[1] Upaya kesehatan tersebut diselenggarakan dengan menitikberatkan kepada pelayanan untuk masyarakat luas guna mencapai derajat kesehatan yang optimal, tanpa mengabaikan mutu pelayanan kepada perorangan. Puskesmas dipimpin oleh seorang kepala Puskesmas yang bertanggung jawab kepada Dinas Kesehatan Kabupaten/Kota.', 0, '-6.386888922111522', '106.83837506661038', 'Puskesmassukmajaya.png'),
+(36, 'Rs Cijantungan', 'Cijantung jakarta pusat', '082346494945664555', '', 'Rumah sakit jantungan', 0, '67893682', '68937789937', 'Screenshot_2021-06-26-00-47-19-79_22e4250240c136c826b8a3b1264b092d.jpg'),
+(37, 'tes', 'tes', '13123', '', 'tes', 0, '123123123123', '123123123123', 'a4.png'),
+(38, 'tes', 'tes', '13123', '', 'tes', 0, '123123123123', '123123123123', 'a5.png'),
+(39, 'qweqwe', 'qweqwe', '1231231', '', '1qweqweqwe', 0, '1231231', '121231231', 'a6.png'),
+(40, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a7.png'),
+(41, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a8.png'),
+(42, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a9.png');
 
 -- --------------------------------------------------------
 
@@ -164,7 +171,8 @@ INSERT INTO `t_klinik_anggota` (`id_klinik_anggota`, `id_klinik`, `id_bidan`, `s
 (25, 22, 11, 0),
 (26, 23, 12, 0),
 (27, 24, 13, 0),
-(28, 25, 14, 0);
+(28, 25, 14, 0),
+(51, 36, 19, 0);
 
 -- --------------------------------------------------------
 
@@ -193,12 +201,14 @@ INSERT INTO `t_klinik_fasilitas` (`id_klinik_fasilitas`, `id_klinik`, `id_fasili
 (24, 23, 1, 0),
 (25, 23, 2, 0),
 (26, 23, 3, 0),
-(27, 24, 1, 0),
-(28, 24, 2, 0),
-(29, 24, 3, 0),
 (30, 25, 1, 0),
 (31, 25, 2, 0),
-(32, 25, 3, 0);
+(32, 25, 3, 0),
+(33, 0, 1, 0),
+(34, 0, 3, 0),
+(35, 0, 1, 0),
+(36, 0, 1, 0),
+(47, 36, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -233,8 +243,9 @@ CREATE TABLE `t_login` (
 INSERT INTO `t_login` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `status`, `location`, `status_admin`, `tempat_lahir`, `tgl_lahir`, `bln_kehamilan`, `agama`, `pendidikan_terakhir`, `gol_darah`, `pekerjaan`, `status_verif`) VALUES
 (1, 'friski', 'Jakarta', '081212312312', 'friskisatya@mail.com', '202cb962ac59075b964b07152d234b70', '1', 'Jakarta', 1, '', NULL, 0, '', '', '', '', 1),
 (2, 'friski', '', '82130327606', 'friskisatya5@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 1, '', NULL, 0, '', '', '', '', 1),
-(4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', NULL),
-(16, '123', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1997-02-20', 7, 'Katolik', 'S1/D4', 'A', 'Karyawan Swasta ', 1);
+(4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', 1),
+(16, '123', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1997-02-20', 7, 'Katolik', 'S1/D4', 'A', 'Karyawan Swasta ', 1),
+(17, 'Deny tri', '', '82130939511', 'denytrisaktiapps@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Bandoeng', '2021-06-30', 1, 'Islam', 'S3', 'AB', 'Doktor', 1);
 
 -- --------------------------------------------------------
 
@@ -286,7 +297,13 @@ INSERT INTO `t_riwayat_checkup` (`id`, `tgl_checkup`, `email`) VALUES
 (5, '2021-06-04', 'test@mail.com'),
 (6, '2021-06-09', 'test@mail.com'),
 (7, '2021-06-09', 'test@mail.com'),
-(8, '2021-06-26', 'friskisatya2@gmail.com');
+(8, '2021-06-26', 'friskisatya2@gmail.com'),
+(9, '2021-06-30', 'friskisatya5@gmail.com'),
+(10, '2021-06-30', 'friskisatya5@gmail.com'),
+(11, '2021-06-30', 'friskisatya5@gmail.com'),
+(12, '2021-06-30', 'friskisatya5@gmail.com'),
+(13, '2021-06-30', 'denytrisaktiapps@gmail.com'),
+(14, '2021-07-16', 'denytrisaktiapps@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -360,7 +377,8 @@ INSERT INTO `t_screening_history` (`id_screening_history`, `user_id`, `tanggal_s
 (15, 'test@mail.com', '2021-06-03', 98),
 (16, 'test@mail.com', '2021-06-03', 98),
 (17, 'friskisatya2@gmail.com', '2021-06-26', 94),
-(18, 'friskisatya2@gmail.com', '2021-06-26', 2);
+(18, 'friskisatya2@gmail.com', '2021-06-26', 2),
+(19, 'denytrisaktiapps@gmail.com', '2021-06-30', 6);
 
 -- --------------------------------------------------------
 
@@ -489,7 +507,37 @@ INSERT INTO `t_screening_history_detail` (`id_screening_history_detail`, `id_scr
 (232, 18, 33, 'N'),
 (233, 18, 34, 'N'),
 (234, 18, 35, 'N'),
-(235, 18, 36, 'N');
+(235, 18, 36, 'N'),
+(236, 19, 1, 'Y'),
+(237, 19, 2, 'N'),
+(238, 19, 3, 'N'),
+(239, 19, 4, 'N'),
+(240, 19, 5, 'N'),
+(241, 19, 6, 'N'),
+(242, 19, 7, 'N'),
+(243, 19, 8, 'N'),
+(244, 19, 9, 'N'),
+(245, 19, 10, 'N'),
+(246, 19, 11, 'N'),
+(247, 19, 12, 'N'),
+(248, 19, 13, 'N'),
+(249, 19, 14, 'N'),
+(250, 19, 15, 'N'),
+(251, 19, 16, 'N'),
+(252, 19, 17, 'N'),
+(253, 19, 18, 'N'),
+(254, 19, 19, 'N'),
+(255, 19, 20, 'N'),
+(256, 19, 21, 'N'),
+(257, 19, 22, 'N'),
+(258, 19, 23, 'N'),
+(259, 19, 24, 'N'),
+(260, 19, 25, 'N'),
+(261, 19, 27, 'N'),
+(262, 19, 33, 'N'),
+(263, 19, 34, 'N'),
+(264, 19, 35, 'N'),
+(265, 19, 36, 'N');
 
 -- --------------------------------------------------------
 
@@ -586,7 +634,27 @@ INSERT INTO `t_survei_history` (`id`, `id_survei`, `jawaban`, `email`) VALUES
 (57, 17, 'Y', 'friskisatya2@gmail.com'),
 (58, 18, 'Y', 'friskisatya2@gmail.com'),
 (59, 19, 'Y', 'friskisatya2@gmail.com'),
-(60, 20, 'Y', 'friskisatya2@gmail.com');
+(60, 20, 'Y', 'friskisatya2@gmail.com'),
+(61, 1, 'N', 'denytrisaktiapps@gmail.com'),
+(62, 2, 'N', 'denytrisaktiapps@gmail.com'),
+(63, 3, 'N', 'denytrisaktiapps@gmail.com'),
+(64, 4, 'Y', 'denytrisaktiapps@gmail.com'),
+(65, 5, 'Y', 'denytrisaktiapps@gmail.com'),
+(66, 6, 'Y', 'denytrisaktiapps@gmail.com'),
+(67, 7, 'Y', 'denytrisaktiapps@gmail.com'),
+(68, 8, 'Y', 'denytrisaktiapps@gmail.com'),
+(69, 9, 'Y', 'denytrisaktiapps@gmail.com'),
+(70, 10, 'Y', 'denytrisaktiapps@gmail.com'),
+(71, 11, 'Y', 'denytrisaktiapps@gmail.com'),
+(72, 12, 'Y', 'denytrisaktiapps@gmail.com'),
+(73, 13, 'Y', 'denytrisaktiapps@gmail.com'),
+(74, 14, 'Y', 'denytrisaktiapps@gmail.com'),
+(75, 15, 'Y', 'denytrisaktiapps@gmail.com'),
+(76, 16, 'Y', 'denytrisaktiapps@gmail.com'),
+(77, 17, 'Y', 'denytrisaktiapps@gmail.com'),
+(78, 18, 'Y', 'denytrisaktiapps@gmail.com'),
+(79, 19, 'Y', 'denytrisaktiapps@gmail.com'),
+(80, 20, 'N', 'denytrisaktiapps@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -633,6 +701,12 @@ ALTER TABLE `t_faq`
 --
 ALTER TABLE `t_fasilitas`
   ADD PRIMARY KEY (`id_fasilitas`);
+
+--
+-- Indexes for table `t_klinik`
+--
+ALTER TABLE `t_klinik`
+  ADD PRIMARY KEY (`id_klinik`);
 
 --
 -- Indexes for table `t_klinik_anggota`
@@ -708,13 +782,13 @@ ALTER TABLE `t_tentang`
 -- AUTO_INCREMENT for table `t_artikel`
 --
 ALTER TABLE `t_artikel`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `t_bidan`
 --
 ALTER TABLE `t_bidan`
-  MODIFY `id_bidan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_bidan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `t_faq`
@@ -726,31 +800,37 @@ ALTER TABLE `t_faq`
 -- AUTO_INCREMENT for table `t_fasilitas`
 --
 ALTER TABLE `t_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `t_klinik`
+--
+ALTER TABLE `t_klinik`
+  MODIFY `id_klinik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `t_klinik_anggota`
 --
 ALTER TABLE `t_klinik_anggota`
-  MODIFY `id_klinik_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_klinik_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `t_klinik_fasilitas`
 --
 ALTER TABLE `t_klinik_fasilitas`
-  MODIFY `id_klinik_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_klinik_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `t_login`
 --
 ALTER TABLE `t_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `t_riwayat_checkup`
 --
 ALTER TABLE `t_riwayat_checkup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `t_screening`
@@ -762,13 +842,13 @@ ALTER TABLE `t_screening`
 -- AUTO_INCREMENT for table `t_screening_history`
 --
 ALTER TABLE `t_screening_history`
-  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `t_screening_history_detail`
 --
 ALTER TABLE `t_screening_history_detail`
-  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=236;
+  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=266;
 
 --
 -- AUTO_INCREMENT for table `t_survei`
@@ -780,7 +860,7 @@ ALTER TABLE `t_survei`
 -- AUTO_INCREMENT for table `t_survei_history`
 --
 ALTER TABLE `t_survei_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `t_tentang`
