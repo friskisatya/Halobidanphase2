@@ -96,7 +96,7 @@ class C_setup_artikel extends CI_Controller {
                 // 'kode_artikel'   =>$this->input->post('kode_artikel'),
                 'judul_artikel' =>$this->input->post('judul_artikel'),
                 'isi_artikel' =>$this->input->post('isi_artikel'),
-                'status_artikel'        =>$this->input->post('status_artikel'),
+                'status_artikel'        =>$this->input->post('status'),
             );
             $edit = $this->M_artikel->edit($data,$where);
             if($edit){

@@ -54,7 +54,7 @@
        <?php foreach($rs_data2 as $data2){?>
        <tr>
        <td><h4><?=$data2->head??""?></h4><br><?=$data2->body??""?></td>
-       <td><?=$data2->jawaban??""=="Y"?"YA":"TIDAK"?></td>
+       <td><?=($data2->jawaban??"")=="Y"?"YA":"TIDAK"?></td>
        </tr>
        
        <?php } ?>

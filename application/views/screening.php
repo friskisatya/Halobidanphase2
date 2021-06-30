@@ -5,7 +5,7 @@
 <img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/screening.png" alt="Card image">    
             </div>
         </div>
-    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+    <div class="card-img-overlay mt-5 p-0" style="height : 25%">
         <div class="row m-4">
             <div class="col-8">
                 <h4 class="card-title">Screening Mandiri</h4>
@@ -17,8 +17,8 @@
         </div>
     </div>
 </div>
-<?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
-<?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?>
+<!-- <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?> -->
+<!-- <?= $this->session->userdata("notif_delete");$this->session->unset_userdata("notif_delete")?> -->
 <div class="table-responsive">
         <table class="table table-shopping">
             <thead>

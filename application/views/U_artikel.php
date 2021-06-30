@@ -1,4 +1,4 @@
-<h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+<h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.location='<?=base_url('C_setup_artikel')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
     <h4 class="title"><i class="fas fa-columns"></i>&nbsp Sunting Artikel</h4>
     <?= $this->session->userdata("notif_edit");$this->session->unset_userdata("notif_edit")?>
         <form action="<?=base_url('C_setup_artikel/post_edit/').$id ?>" method="POST" enctype="multipart/form-data">

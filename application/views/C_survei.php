@@ -5,7 +5,7 @@
         <div class="row m-4">
         <div class="col-3"></div>
             <div class="col-9">
-            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_profile_kehamilan ')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
                 <h4 class="card-title">Survei Persiapan Kehamilan</h4>
                 <p class="card-text text-capitalize">Survei ini bertujuan agar dapat mengetahui seberapa siap ibu hamil menghadapi persalian dan masa kehamilannya.</p>
             </div>

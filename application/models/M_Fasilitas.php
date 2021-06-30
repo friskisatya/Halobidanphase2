@@ -7,6 +7,11 @@ class M_Fasilitas extends CI_Model {
 	{
 		return $this->db->get('t_fasilitas')->result();
 	}
+	public function getAllfasilitasActive()
+	{
+		
+		return $this->db->query("SELECT * FROM t_fasilitas where status =1")->result();
+	}
 
 	public function getAllfasilitasById($id_fasilitas)
 	{

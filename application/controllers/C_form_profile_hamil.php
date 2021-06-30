@@ -7,10 +7,10 @@ class C_form_profile_hamil extends CI_Controller {
 	function __construct() 
     {
         parent::__construct();
-        if (($this->session->userdata('email')=="" OR empty($this->session->userdata('email')))) {
-            $this->session->set_userdata("notif_login","<span class='login100-form-title-1'><font size='3px' color='#c80000'>Silahkan Login Sebagai Admin</font></span>");
-            redirect('C_login');
-        }
+        // if (($this->session->userdata('email')=="" OR empty($this->session->userdata('email')))) {
+        //     $this->session->set_userdata("notif_login","<span class='login100-form-title-1'><font size='3px' color='#c80000'>Silahkan Login Sebagai Admin</font></span>");
+        //     redirect('C_login');
+        // }
 
         $this->load->model('M_form_informasi_hamil');
         //$this->load->model('');
@@ -57,7 +57,7 @@ class C_form_profile_hamil extends CI_Controller {
         }else{
             $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
-
+        
         redirect("C_form_profile_hamil");
 	}
 

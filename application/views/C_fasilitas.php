@@ -1,4 +1,4 @@
-<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_setup_fasilitas')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
     <h4 class="title"><i class="fas fa-columns"></i>&nbsp Tambah Data Fasilitas Klinik</h4>
     <form action="<?=base_url('C_setup_fasilitas/post_create')?>" method="POST">
         <div class="card-body">

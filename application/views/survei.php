@@ -12,7 +12,7 @@
                 <p class="card-text">Jawab Pertanyaan Berikut Secara Jujur dan Sadar Agar Dapat Terdeteksi Tingkat Resiko Kehamilan Anda.</p>
             </div>
             <div class="col-4">
-            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_screening')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_profile_kehamilan')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
             </div>
         </div>
     </div>

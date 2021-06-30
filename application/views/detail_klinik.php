@@ -8,7 +8,7 @@
         <div class="row m-4 mb-0">
             <div class="col-2"></div>
             <div class="col-10">
-                <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.history.back();"><i
+                <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i
                         class="fas fa-arrow-left"></i>&nbsp Back</h6>
                 <h4 class="title" style="text-transform: uppercase;"><i class="fas fa-hospital-alt"></i>&nbsp
                     <?=$klinik->nama_klinik?></h4>
@@ -19,6 +19,8 @@
                 <p class="text-description text-secondary h6 text-justify" style="text-transform: capitalize;">
                     <?=$klinik->tentang?></p>
             </blockquote>
+            </div>
+            <div class="container">
             <h4 class="card-title text-center">Fasilitas</h4>
             <div class="row">
                 <?php
@@ -43,6 +45,8 @@
                 </div>
                 <?php } ?>
             </div>
+            </div>
+            <div class="container">
             <div class="row">
                 
                 <div class="col-3">
@@ -63,6 +67,8 @@
                     Daftar Bidan
                 </button>            
                 </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br>
             </div>
             <div class="collapse" id="collapseExample">
                     <div class="table-responsive">

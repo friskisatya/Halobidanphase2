@@ -139,7 +139,7 @@ class C_index extends CI_Controller {
             redirect('C_login');
         }
         $data['rs_bidan'] = $this->M_bidan->getAllBidan();
-        $data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        $data['rs_klinik'] = $this->M_klinik->getAllKlinikActive();
 		$this->template->load('static','chat_bidan',$data);
 	}
 

@@ -1,4 +1,4 @@
-<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_setup_klinik')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
     <h4 class="title"><i class="fas fa-columns"></i>&nbsp Update Data Klinik</h4>
 <div class="container">
   <?= $this->session->userdata("notif_edit");$this->session->unset_userdata("notif_edit")?>
@@ -122,7 +122,7 @@
 
 
 
-<div class="modal fade" id="modalfasilitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade  mt-5 " id="modalfasilitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="card modal-content">
       <div class="modal-header">

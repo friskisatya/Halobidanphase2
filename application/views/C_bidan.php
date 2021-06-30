@@ -1,4 +1,4 @@
-<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.history.back();"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
+<h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_setup_bidan')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
     <h4 class="title"><i class="fas fa-columns"></i>&nbsp Tambah Data Bidan</h4>
     <form action="<?=base_url('C_setup_bidan/post_create')?>" method="POST" enctype="multipart/form-data">
         <div class="card-body">
@@ -68,7 +68,7 @@
 </form>
 
 
-<div class="modal fade" id="modalklinik" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade  mt-5 " id="modalklinik" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="card modal-content">
       <div class="modal-header">

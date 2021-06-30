@@ -30,7 +30,7 @@ class C_setup_klinik extends CI_Controller {
 
     public function create()
 	{
-        $data["rs_fasilitas"] = $this->M_fasilitas->getAllfasilitas();
+        $data["rs_fasilitas"] = $this->M_fasilitas->getAllfasilitasActive();
 		$this->template->load('static','C_klinik',$data);
 	}
     public function create_web()
@@ -42,7 +42,7 @@ class C_setup_klinik extends CI_Controller {
 	{
         $data["id"]=$id;
         $data["rs_klinik"] = $this->M_klinik->getAllKlinikById($id);
-        $data["rs_fasilitas"] = $this->M_fasilitas->getAllfasilitas();
+        $data["rs_fasilitas"] = $this->M_fasilitas->getAllfasilitasActive();
 		$this->template->load('static','U_klinik',$data);
 	}
     public function edit_web($id)
@@ -131,20 +131,81 @@ class C_setup_klinik extends CI_Controller {
 	}
     public function post_create_web()
 	{
-        $data = array(
-            'nama_klinik'   =>$this->input->post('nama_klinik'),
-            'alamat_klinik' =>$this->input->post('alamat_klinik'),
-            'telp_klinik'   =>$this->input->post('telp_klinik'),
-            'tentang'       =>$this->input->post('tentang'),
-            'status'        =>$this->input->post('status'),
-        );
-        $create = $this->M_klinik->create($data);
-        if($create){
-            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
-        }else{
-            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $data = array(
+                'nama_klinik'   =>$this->input->post('nama_klinik'),
+                'alamat_klinik' =>$this->input->post('alamat_klinik'),
+                'telp_klinik'   =>$this->input->post('telp_klinik'),
+                'tentang'       =>$this->input->post('tentang'),
+                'status'        =>$this->input->post('status'),
+                'latitude'      =>$this->input->post('latitude'),
+                'longitude'     =>$this->input->post('longitude'),
+            );
+            $create = $this->M_klinik->create($data);
+
+            $data = array();
+            
+            foreach($this->input->post('fasilitas') as $fasilitas){ // Kita buat perulangan berdasarkan nis sampai data terakhir
+                array_push($data, array(
+                    'id_klinik'=>$create,
+                    'id_fasilitas'=>$fasilitas,
+                ));
+                
+                $index++;
+            }
+
+            $this->db->insert_batch('t_klinik_fasilitas', $data);
+
+            if($create){
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan, Tetapi gambar gagal diupload</font></span>");
+            }else{
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
         }
-        redirect("C_setup_klinik/index_web");
+        else
+        {
+            // Get data about the file
+            $uploadData = $this->upload->data(); 
+            $filename = $uploadData['file_name'];
+
+            $data = array(
+                'nama_klinik'   =>$this->input->post('nama_klinik'),
+                'alamat_klinik' =>$this->input->post('alamat_klinik'),
+                'telp_klinik'   =>$this->input->post('telp_klinik'),
+                'tentang'       =>$this->input->post('tentang'),
+                'status'        =>$this->input->post('status'),
+                'latitude'      =>$this->input->post('latitude'),
+                'longitude'     =>$this->input->post('longitude'),
+                'img_path'      =>$filename,
+            );
+            $create = $this->M_klinik->create($data);
+            var_dump($_POST);die;
+            $data = array();
+            foreach($this->input->post('fasilitas') as $fasilitas){ // Kita buat perulangan berdasarkan nis sampai data terakhir
+                array_push($data, array(
+                    'id_klinik'=>$create,
+                    'id_fasilitas'=>$fasilitas,
+                ));
+                
+                $index++;
+            }
+
+            $this->db->insert_batch('t_klinik_fasilitas', $data);
+
+            if($create){
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        redirect("C_index/setup_web");
 	}
 
     public function post_edit($id)

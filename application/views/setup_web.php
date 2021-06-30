@@ -1,3 +1,6 @@
+  <style>
+    .modal { overflow: auto !important; }
+  </style>
   <div class="wrapper" id="index">
       <div class="page-header clear-filter" filter-color="orange">
           <div class="page-header-image" data-parallax="true"
@@ -161,7 +164,7 @@
               <div class="container">
                   <h4 class="title"><i class="fas fa-columns"></i>&nbsp Tambah Data Klinik</h4>
                   <?= $this->session->userdata("notif_insert");$this->session->unset_userdata("notif_insert")?>
-                  <form action="<?=base_url('C_setup_klinik/post_create')?>" method="POST"
+                  <form action="<?=base_url('C_setup_klinik/post_create_web')?>" method="POST"
                       enctype="multipart/form-data">
                       <div class="card-body">
                           <div class="form-group">
@@ -255,7 +258,7 @@
                       <div class="card modal-content">
                           <div class="modal-header">
                               <h5 class="modal-title" id="exampleModalLabel">Tambah fasilitas</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <button type="button" class="close" onclick="$('#modalfasilitas').modal('toggle');$('#modalklinik').modal('open');" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                               </button>
                           </div>

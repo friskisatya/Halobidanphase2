@@ -25,7 +25,7 @@ class C_setup_bidan extends CI_Controller {
 
     public function create()
 	{
-        $data["rs_klinik"] = $this->M_klinik->getAllklinik();
+        $data["rs_klinik"] = $this->M_klinik->getAllKlinikActive();
 		$this->template->load('static','C_bidan',$data);
 	}
 
@@ -33,7 +33,7 @@ class C_setup_bidan extends CI_Controller {
 	{
         $data["id"]=$id;
         $data["rs_bidan"] = $this->M_bidan->getAllbidanById($id);
-        $data["rs_klinik"] = $this->M_klinik->getAllklinik();
+        $data["rs_klinik"] = $this->M_klinik->getAllKlinikActive();
 		$this->template->load('static','U_bidan',$data);
 	}
 

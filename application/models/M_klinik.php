@@ -8,6 +8,11 @@ class M_klinik extends CI_Model {
 		return $this->db->get('t_klinik')->result();
 	}
 
+	public function getAllKlinikActive()
+	{
+		return $this->db->query("SELECT * FROM t_klinik where status =0")->result();
+	}
+
 	public function getAllKlinikById($id_klinik)
 	{
 		$data = array('id_klinik'=>$id_klinik);

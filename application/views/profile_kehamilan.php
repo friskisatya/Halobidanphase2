@@ -50,7 +50,7 @@
             <div class="col-6">
                 <button class="btn btn-info btn-lg h6" type="button" data-toggle="collapse"
                     data-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample">
-                    Tambah riwayat checkup <br><br>
+                    Tambah riwayat checkup
                 </button>
             </div>
             <div class="col-6">

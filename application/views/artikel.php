@@ -34,7 +34,7 @@
     <h4 class="title h5">Baca Artikel Lainnya</h4>
     <div class="row text-center flex-nowrap" style="overflow: auto;">
     <?php foreach($rs_artikel_all as $artikel){?>
-        <div class="btn btn-sm col-auto m-1 p-0 pb-2 bg-light">
+        <div class="btn btn-sm col-auto m-1 p-0 pb-2 bg-light text-dark">
             <div class="card-wrapper" style="width: 20rem;">
             <?php if($artikel->img_artikel!=""||$artikel->img_artikel!=null) { ?>
                 <img class="card-img-top" height="180" src="<?= base_url('uploads/').$artikel->img_artikel?>" alt="Card image cap">

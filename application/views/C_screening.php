@@ -5,7 +5,7 @@
 <img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/screening.png" alt="Card image">    
             </div>
         </div>
-    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
+    <div class="card-img-overlay mt-5 p-0" style="height : 25%">
         <div class="row m-4">
             <div class="col-8">
                 <h4 class="card-title">Screening Mandiri</h4>
@@ -29,7 +29,7 @@
                     <tr><td colspan="2"><h3 class="mb-0 text-dark">B.Kondisi Ibu Hamil</h3></td></tr>
                 <?php } ?>
                 <tr>
-                    <td><p class="description h6 text-dark text-capitalize"><?= $screening->pertanyaan_screening?></p></td>
+                    <td><p class="description h5 text-dark text-capitalize"><?= $screening->pertanyaan_screening?></p></td>
                     <td width="30%">
                     <input type="hidden" name="pertanyaan[]" value="<?= $screening->id?>">
                     <select name="jawaban[]" class="form-control badge badge-info" required>
