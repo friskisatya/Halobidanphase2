@@ -26,7 +26,6 @@ class C_setup_artikel extends CI_Controller {
 	{
 		$this->template->load('static','C_artikel');
 	}
-
     public function edit($id)
 	{
         $data["id"]=$id;
@@ -156,7 +155,7 @@ class C_setup_artikel extends CI_Controller {
     public function index_web()
 	{
         $data["rs_artikel"] = $this->M_artikel->getAllartikel();
-		$this->template->load('static_web','setup_artikel_web',$data);
+		$this->template->load('static_web','artikel_web',$data);
 	}
 
     public function create_web()
@@ -185,7 +184,7 @@ class C_setup_artikel extends CI_Controller {
         }else{
             $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
-        redirect("C_setup_artikel/index_web");
+        redirect("C_index/setup_web");
 	}
 
     public function post_edit_web($id)
@@ -203,7 +202,7 @@ class C_setup_artikel extends CI_Controller {
             $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
 
-        redirect("C_setup_artikel/edit_web/".$id);
+        redirect("C_index/setup_web");
 	}
 
     public function delete_web($id)
@@ -217,6 +216,6 @@ class C_setup_artikel extends CI_Controller {
             $this->session->set_userdata("notif_delete","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil Dihapus</font></span>");
         }
 
-        redirect("C_setup_artikel/index_web");
+        redirect("C_index/setup_web");
 	}
 }

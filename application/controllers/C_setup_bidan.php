@@ -213,13 +213,15 @@ class C_setup_bidan extends CI_Controller {
 
     public function create_web()
 	{
-		$this->template->load('static_web','C_bidan_web');
+        $data["rs_klinik"] = $this->M_klinik->getAllKlinikActive();
+		$this->template->load('static_web','C_bidan_web',$data);
 	}
 
     public function edit_web($id)
 	{
         $data["id"]=$id;
         $data["rs_bidan"] = $this->M_bidan->getAllbidanById($id);
+        $data["rs_klinik"] = $this->M_klinik->getAllKlinikActive();
 		$this->template->load('static_web','U_bidan_web',$data);
 	}
 
@@ -239,7 +241,7 @@ class C_setup_bidan extends CI_Controller {
         }else{
             $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
-        redirect("C_setup_bidan/index_web");
+        redirect("C_index/setup_web");
 	}
 
     public function post_edit_web($id)
@@ -260,7 +262,7 @@ class C_setup_bidan extends CI_Controller {
             $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
 
-        redirect("C_setup_bidan/edit_web/".$id);
+        redirect("C_index/setup_web");
 	}
 
     public function delete_web($id)
@@ -274,6 +276,6 @@ class C_setup_bidan extends CI_Controller {
             $this->session->set_userdata("notif_delete","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil Dihapus</font></span>");
         }
 
-        redirect("C_setup_bidan/index_web");
+        redirect("C_index/setup_web");
 	}
 }

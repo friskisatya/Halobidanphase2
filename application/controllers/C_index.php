@@ -131,6 +131,12 @@ class C_index extends CI_Controller {
         $data["rs_artikel_all"]= $this->M_artikel->getAllartikelActive();
         $this->template->load('static','artikel',$data);
 	}
+    public function artikel_web($id)
+	{
+        $data["rs_artikel"]=$this->M_artikel->getAllartikelById($id);
+        $data["rs_artikel_all"]= $this->M_artikel->getAllartikelActive();
+        $this->template->load('static_web','artikel_web',$data);
+	}
 
     public function chat_bidan()
 	{
