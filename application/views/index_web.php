@@ -30,8 +30,11 @@
                           <p class="card-description text-dark text-capitalize">Jangkau dan Dapatkan informasi Seputar
                               Kehamilan
                               dari klinik di dekat anda</p>
+						<?php if(($this->session->userdata("email")??"")!=""){?>
                           <button type="button" class="btn btn-outline-info btn-round" data-toggle="modal"
                               data-target=".bd-example-modal-lg1">Konsultasi </button>
+							
+						<?php } ?>
                       </div>
                   </div>
 
@@ -43,8 +46,10 @@
                           <p class="card-description text-right text-dark text-capitalize">Nikmati Kemudahan
                               berkonsultasi dengan
                               bidan yang berpengalaman</p>
+							  <?php if(($this->session->userdata("email")??"")!=""){?>
                           <button type="button" class="btn btn-outline-info btn-round pull-right" data-toggle="modal"
                               data-target=".bd-example-modal-lg">Chat Bidan</button>
+							  <?php } ?>
                           <!-- <a href="" class="btn btn-outline-info btn-round pull-right">Chat Bidan</a>   -->
                       </div>
                       <div class="col col-md-4 ">
@@ -64,8 +69,10 @@
                           <p class="card-description text-dark text-capitalize">Kalkulator yang membantu memperkirakan
                               hari perkiraan lahir si buah hati.</p>
                           <!-- <a href="" class="btn btn-outline-info btn-round">Hitung</a> -->
+						  <?php if(($this->session->userdata("email")??"")!=""){?>
                           <button type="button" class="btn btn-outline-info btn-round" data-toggle="modal"
                               data-target=".bd-example-modal-lg3">Hitung</button>
+							<?php } ?>
                       </div>
                   </div>
               </div>
@@ -77,8 +84,10 @@
                       <p class="card-description text-right text-dark text-capitalize">Screening Mandiri Adalah layanan
                           Mandiri
                           Untuk Mendeteksi Dini Resiko Kehamilan.</p>
+						  <?php if(($this->session->userdata("email")??"")!=""){?>
                       <button type="button" class="btn btn-outline-info btn-round pull-right" data-toggle="modal"
                           data-target=".bd-example-modal-lg4">Lakukan Screening</button>
+						<?php } ?>
                   </div>
                   <div class="col col-md-4 ">
                       <img class="card-img m-0 p-0 float-right" src="<?= base_url()?>assets/img/task.png"
@@ -102,53 +111,20 @@
                       </div>
                       <div class="col-md-8">
                           <div class="row text-center flex-nowrap" style="overflow: auto;">
-                              <div class="col-5">
+                          <?php foreach($rs_artikel as $artikel){?>
+                              <div class="col-5" onclick="window.location='<?=base_url('C_index/artikel/'.$artikel->id_artikel)?>'">
                                   <div class="card" style="width: 20rem;">
-                                      <img class="card-img-top" src="<?= base_url()?>assets/img/bg.jpg"
+                                      <img class="card-img-top" src="<?= base_url('uploads/').$artikel->img_artikel?>"
                                           alt="Card image cap">
                                       <div class="card-body">
-                                          <p class="card-text">Some quick example text to build on the card title and
-                                              make up the bulk of
-                                              the card's content.</p>
+                                          <p class="card-text"><?= $artikel->judul_artikel?></p>
+                                          <a href="#" class="btn btn-primary">Baca Selengkapnya</a>
                                       </div>
                                   </div>
                               </div>
+                            <?php } ?>
 
-                              <div class="col-5">
-                                  <div class="card" style="width: 20rem;">
-                                      <img class="card-img-top" src="<?= base_url()?>assets/img/bg.jpg"
-                                          alt="Card image cap">
-                                      <div class="card-body">
-                                          <p class="card-text">Some quick example text to build on the card title and
-                                              make up the bulk of
-                                              the card's content.</p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="col-5">
-                                  <div class="card" style="width: 20rem;">
-                                      <img class="card-img-top" src="<?= base_url()?>assets/img/bg.jpg"
-                                          alt="Card image cap">
-                                      <div class="card-body">
-                                          <p class="card-text">Some quick example text to build on the card title and
-                                              make up the bulk of
-                                              the card's content.</p>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="col-5">
-                                  <div class="card" style="width: 20rem;">
-                                      <img class="card-img-top" src="<?= base_url()?>assets/img/bg.jpg"
-                                          alt="Card image cap">
-                                      <div class="card-body">
-                                          <p class="card-text">Some quick example text to build on the card title and
-                                              make up the bulk of
-                                              the card's content.</p>
-                                      </div>
-                                  </div>
-                              </div>
+                              
                           </div>
                       </div>
 
@@ -301,12 +277,12 @@
                                       <p class="text-center text-capitalize"><?=$klinik->alamat_klinik?></p>
                                   </td>
                                   <td>
-                                      <!-- <a href="<?=base_url("C_index/detail_klinik/").$klinik->id_klinik?>"><button
+                                      <a href="<?=base_url("C_index/detail_klinik_web/").$klinik->id_klinik?>"><button
                                               class="btn btn-primary btn-outline-info btn-round">Detail
-                                              Klinik</button></a> -->
-                                              <button class="btn btn-info h6"
+                                              Klinik</button></a>
+                                              <!-- <button class="btn btn-info h6"
                               data-toggle="modal" data-target=".bd-example-modal-lg7"><i
-                                          class="fas fa-edit"></i> Detail</button>
+                                          class="fas fa-edit"></i> Detail</button> -->
                                   </td>
                               </tr>
                               <?php } ?>
@@ -335,7 +311,7 @@
                       </div>
                   </div>
                   <div class="col mt-5">
-                      <form action="<?=base_url('C_index/kalkulator_kehamilan')?>" method="POST">
+                      <form action="<?=base_url('C_index/kalkulator_kehamilan_web')?>" method="POST">
                           <div class="form-group row">
                               <div class="col-md-6 mt-2">Tanggal Hari Pertama Haid Terakhir (HPHT)</div>
                               <div class="col-md-6">
@@ -354,13 +330,7 @@
                   </div>
 
                   <hr>
-                  <p class="description">Hasil Perkiraan</p>
-                  Berdasarkan HPHT anda yaitu <?= $tgl_input??"{tanggal input}"?> maka dapat di perkirakan sebagai
-                  berikut :<br>
-                  <!-- Perkiraan Pembuahan : <?=$hp==""?"{tanggal pembuahan}":date_format($hp,"Y-m-d")?><br> -->
-                  <!-- Perkiraan Usia Janin : <?=$uj_minggu??"0"?> Minggu, <?=$uj_hari??"0"?> Hari   <br> -->
-                  Perkiraan lahir : <?=$hpt==""?"{tanggal perkiraan lahir}":date_format($hpt,"Y-m-d")?><br>
-                  Asumsi ini mengakibatkan metode ini mempunyai tingkat kesalahan plus minus 2 minggu.
+                  
 
               </div>
           </div>
@@ -397,9 +367,12 @@
                       <thead>
                           <th>Tanggal Screening</th>
                           <th>Tingkat Resiko</th>
-
+<!-- 
                           <th class="text_right bg-info text-dark h6" type="button" class=" btn btn-info h6 text-dark"
                               data-toggle="modal" data-target=".bd-example-modal-lg5"><i class="fas fa-plus"></i>&nbsp
+                              lakukan Screening</th> -->
+							<th class="text_right bg-info text-dark h6" type="button" class=" btn btn-info h6 text-dark"
+							onclick="window.location='<?=base_url('C_screening/create_web')?>'"><i class="fas fa-plus"></i>&nbsp
                               lakukan Screening</th>
                       </thead>
                       <tbody>
@@ -413,7 +386,7 @@
                               <td class="align-middle"><?= $data->tanggal_screening?></td>
                               <td class="align-middle"><?= $join[0]->kel_resiko?></td>
                               <td><button class="btn btn-info h6"
-                              data-toggle="modal" data-target=".bd-example-modal-lg6"><i
+                              onclick="window.location='<?=base_url('C_screening/edit_web/'.$data->id_screening_history)?>'"><i
                                           class="fas fa-edit"></i> Detail</button></td>
                           </tr>
                           <?php } ?>
@@ -746,12 +719,12 @@ function f_location(latitude, longitude) {
     //   window.open("https://wa.me/6282130327606?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
 }
 
-function f_telp(telp) {
-    window.open("https://wa.me/" + telp + "?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
+function f_telp(telp, nama_klinik) {
+    window.open("https://wa.me/" + telp + "?text=Halo+" + nama_klinik +"%2C+saya+<?= $this->session->userdata('nama') ?>+mau+konsultasi+terkait+kehamilan+saya");
 }
 
-function f_telp_bidan(telp) {
-    window.open("https://wa.me/" + telp + "?text=Saya%20ingin%20bertanya%20tentang%20rumah%20yang%20dijual");
+function f_telp_bidan(telp, nama_dokter) {
+    window.open("https://wa.me/" + telp + "?text=Halo+dokter+" + nama_dokter +"%2C+saya+<?= $this->session->userdata('nama') ?>+mau+konsultasi+terkait+kehamilan+saya");
 }
 </script>
           </div>

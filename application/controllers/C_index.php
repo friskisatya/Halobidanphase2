@@ -115,6 +115,7 @@ class C_index extends CI_Controller {
         $data['rs_klinik'] = $this->M_klinik->getAllKlinik();
         $data["rs_data"] = $this->M_screening->getAllScreeningHistory($this->session->userdata('email'));
         $data["rs_screening"] = $this->M_screening->getAllscreening();
+        $data["rs_artikel"]= $this->M_artikel->getAllartikelActive();
         $this->template->load('static_web','index_web',$data);
 	}
     public function setup_web(){
@@ -223,10 +224,71 @@ class C_index extends CI_Controller {
 		$this->template->load('static','kalkulator',$data);
 	}
 
+    public function kalkulator_kehamilan_web()
+	{
+        //$data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        //$data['rs_klinik'] = $this->M_klinik->getAllKlinik();
+        if($this->input->post('tanggal_haid')!="" && $this->input->post('tanggal_haid')!=null){
+            //echo $this->input->post('tanggal_haid');
+            //echo $this->input->post('siklus_haid');
+            
+
+            $hpt=date_create($this->input->post('tanggal_haid'));
+            //var_dump($hpt);die;
+            // $hp=date_create($this->input->post('tanggal_haid'));
+            //date_add($date,date_interval_create_from_date_string("40 days"));
+            //echo date_format($hpt,"Y-m-d");die
+            // $lama_siklus = $this->input->post('siklus_haid')-21;
+
+            $total = 7;
+            $total2 = 9;
+            $data["tgl_input"]=$this->input->post('tanggal_haid');
+            $a = date_add($hpt,date_interval_create_from_date_string($total." days"));
+            $data["hpt"] = date_add($a,date_interval_create_from_date_string($total2." month"));
+            //echo date_format($date,"Y-m-d");
+            
+            // $data["hp"] = date_add($hp,date_interval_create_from_date_string("14 days"));
+
+            //$sekarang = new DateTime();
+
+            //$perbedaan = $data["hp"]->diff($sekarang);
+
+            //$uj = date_add($hpt,date_interval_create_from_date_string("14 days"))
+
+            //$sekarang = new DateTime();
+
+            // $uj = $data["hp"]->diff($sekarang);
+
+            // $uj_minggu_ex1 = explode(".",($uj->days/7));  
+            
+            // $uj_minggu_ex2 = explode(",",$uj_minggu_ex1[0]);  
+            //var_dump($uj_minggu_ex2[0]);die;
+            // $data["uj_minggu"] = $uj_minggu_ex2[0];  
+
+            // $data["uj_hari"] = $uj->days % 7; 
+
+
+            //var_dump($data["hp"]);die;
+            
+        }else{
+            $data["tgl_input"]="";
+            $data["hp"]="";
+            $data["hpt"]="";
+        }
+        
+		$this->template->load('static_web','kalkulator_web',$data);
+	}
+
     public function detail_klinik($id_klinik)
 	{
         $data['rs_klinik'] = $this->M_klinik->getAllKlinikById($id_klinik);
 		$this->template->load('static','detail_klinik',$data);
+	}
+
+    public function detail_klinik_web($id_klinik)
+	{
+        $data['rs_klinik'] = $this->M_klinik->getAllKlinikById($id_klinik);
+		$this->template->load('static_web','detail_klinik_web',$data);
 	}
 
     public function post_riwayat_checkup()
