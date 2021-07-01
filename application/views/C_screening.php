@@ -24,7 +24,6 @@
         <tbody>
             <tr><td colspan="2"><h3 class="mb-0 text-dark">A.Keadaan Ibu Hamil</h3></td></tr>
             <?php $index = 1; foreach($rs_screening as $screening){?>
-
                 <?php if($index == 11){?>
                     <tr><td colspan="2"><h3 class="mb-0 text-dark">B.Kondisi Ibu Hamil</h3></td></tr>
                 <?php } ?>
@@ -39,7 +38,6 @@
                     </select>
                     </td>
                 </tr>
-                
             <?php $index++; } ?>
         </tbody>
             <!-- <tbody>
