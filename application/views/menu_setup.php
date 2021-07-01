@@ -33,21 +33,22 @@
                 </div>
             </div>
         </div>
+        
+    </div>
+    <div class="row justify-content">
+    <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_artikel')?>'">
+            <div class="card-wrapper">
+            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/123.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
+                <div class="card-body p-1">
+                    <h6 class="card-title">Setup Artikel</h6>
+                </div>
+            </div>
+        </div>
         <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_bidan')?>'">
             <div class="card-wrapper">
             <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/dashboard_2.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
                 <div class="card-body p-1">
                     <h6 class="card-title">Setup Tenaga Kesehatan (Bidan)</h6>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row justify-content">
-    <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_artikel')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/chat.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Setup Artikel</h6>
                 </div>
             </div>
         </div>
