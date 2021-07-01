@@ -188,7 +188,7 @@ class C_setup_klinik extends CI_Controller {
                 'img_path'      =>$filename,
             );
             $create = $this->M_klinik->create($data);
-            var_dump($_POST);die;
+            //var_dump($_POST);die;
             $data = array();
             foreach($this->input->post('fasilitas') as $fasilitas){ // Kita buat perulangan berdasarkan nis sampai data terakhir
                 array_push($data, array(
@@ -290,26 +290,89 @@ class C_setup_klinik extends CI_Controller {
                 $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
             }
         }
-        redirect("C_indec/edit/".$id);
+        redirect("C_setup_klinik/edit/".$id);
 	}
     public function post_edit_web($id)
 	{
-        $where = array('id_klinik'=>$id);
-        $data = array(
-            'nama_klinik'   =>$this->input->post('nama_klinik'),
-            'alamat_klinik' =>$this->input->post('alamat_klinik'),
-            'telp_klinik'   =>$this->input->post('telp_klinik'),
-            'tentang'       =>$this->input->post('tentang'),
-            'status'        =>$this->input->post('status'),
-        );
-        $edit = $this->M_klinik->edit($data,$where);
-        if($edit){
-            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
-        }else{
-            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
-        }
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
 
-        redirect("C_index/setup_web");
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            // $error = array('error' => $this->upload->display_errors());
+            // var_dump($error);die;
+            $where = array('id_klinik'=>$id);
+            $data = array(
+                'nama_klinik'   =>$this->input->post('nama_klinik'),
+                'alamat_klinik' =>$this->input->post('alamat_klinik'),
+                'telp_klinik'   =>$this->input->post('telp_klinik'),
+                'tentang'       =>$this->input->post('tentang'),
+                'status'        =>$this->input->post('status'),
+                'latitude'      =>$this->input->post('latitude'),
+                'longitude'     =>$this->input->post('longitude'),
+            );
+            $edit = $this->M_klinik->edit($data,$where);
+
+            $data = array();
+            foreach($this->input->post('fasilitas') as $fasilitas){ // Kita buat perulangan berdasarkan nis sampai data terakhir
+                array_push($data, array(
+                    'id_klinik'=>$id,
+                    'id_fasilitas'=>$fasilitas,
+                ));
+                
+                $index++;
+            }
+
+            $this->db->query("DELETE FROM t_klinik_fasilitas where id_klinik ='$id'");
+            $this->db->insert_batch('t_klinik_fasilitas', $data);
+
+            if($edit){
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        else
+        {
+            // Get data about the file
+            $uploadData = $this->upload->data(); 
+            $filename = $uploadData['file_name'];
+
+            $where = array('id_klinik'=>$id);
+            $data = array(
+                'nama_klinik'   =>$this->input->post('nama_klinik'),
+                'alamat_klinik' =>$this->input->post('alamat_klinik'),
+                'telp_klinik'   =>$this->input->post('telp_klinik'),
+                'tentang'       =>$this->input->post('tentang'),
+                'status'        =>$this->input->post('status'),
+                'latitude'      =>$this->input->post('latitude'),
+                'longitude'     =>$this->input->post('longitude'),
+                'img_path'      =>$filename,
+            );
+            $edit = $this->M_klinik->edit($data,$where);
+
+            $data = array();
+            foreach($this->input->post('fasilitas') as $fasilitas){ // Kita buat perulangan berdasarkan nis sampai data terakhir
+                array_push($data, array(
+                    'id_klinik'=>$id,
+                    'id_fasilitas'=>$fasilitas,
+                ));
+                
+                $index++;
+            }
+
+            $this->db->query("DELETE FROM t_klinik_fasilitas where id_klinik= '$id'");
+            $this->db->insert_batch('t_klinik_fasilitas', $data);
+
+            if($edit){
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        redirect("C_setup_klinik/edit_web/".$id);
 	}
 
     public function delete($id)

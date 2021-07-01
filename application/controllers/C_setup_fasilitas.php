@@ -120,6 +120,7 @@ class C_setup_fasilitas extends CI_Controller {
 	{
         $where = array('id_fasilitas'=>$id);
         $data = array(
+            // 'kode_fasilitas'   =>$this->input->post('kode_fasilitas'),
             'nama_fasilitas' =>$this->input->post('nama_fasilitas'),
             'status'        =>$this->input->post('status'),
         );
@@ -130,7 +131,7 @@ class C_setup_fasilitas extends CI_Controller {
             $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
 
-        redirect("C_index/setup_web");
+        redirect("C_setup_fasilitas/edit_web/".$id);
 	}
 
     public function delete_web($id)

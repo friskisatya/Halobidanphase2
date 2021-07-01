@@ -21,7 +21,7 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <div class="col-md-8 ml-auto mr-auto text-center">
-                    <form action="<?=base_url('C_setup_klinik/post_create_web')?>" method="POST"
+                    <form action="<?=base_url('C_setup_klinik/post_edit_web/').$rs_klinik[0]->id_klinik?>" method="POST"
                         enctype="multipart/form-data">
                         <div class="card-body">
                             <div class="form-group">

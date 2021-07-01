@@ -134,13 +134,34 @@
                               </td>
                               <td>
                               <button class="btn btn-danger btn-sm m-1" data-toggle="modal"
-                                          data-target="#deleteklinik" type="button"><i class="fas fa-trash"></i>&nbsp
+                                          data-target="#deleteklinik<?=$klinik->id_klinik?>" type="button"><i class="fas fa-trash"></i>&nbsp
                                           Hapus</button>
                                   <button
                                       onclick="window.location='<?=base_url('C_setup_klinik/edit_web/').$klinik->id_klinik?>'"
                                       class="btn btn-info btn-sm m-1"><i class="fas fa-edit"></i>&nbsp Ubah</button>
                               </td>
                           </tr>
+
+                          <div class="modal fade" id="deleteklinik<?=$klinik->id_klinik?>" tabindex="-1" role="dialog" aria-labelledby="deleteklinik" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteklinik">Konfirmasi</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                    <i class="tim-icons icon-simple-remove"></i>
+                                                </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                Apakah Yakin untuk menghapus data berikut ?
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="window.location='<?=base_url('C_setup_klinik/delete_web/').$klinik->id_klinik?>'">Hapus</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                           <?php } ?>
                       </tbody>
                   </table>
@@ -150,26 +171,7 @@
   </div>
   <!-- end of modal for klinik  -->
   <!-- modal for delete klinik -->
-  <div class="modal fade" id="deleteklinik" tabindex="-1" role="dialog" aria-labelledby="deleteklinik" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                          <h5 class="modal-title" id="deleteklinik">Konfirmasi</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                              <i class="tim-icons icon-simple-remove"></i>
-                          </button>
-                </div>
-                <div class="modal-body">
-                          Apakah Yakin untuk menghapus data berikut ?
-                </div>
-                <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                          <button type="button" class="btn btn-primary"
-                              onclick="window.location='<?=base_url('C_setup_klinik/delete_web/').$klinik->id_klinik?>'">Hapus</button>
-                </div>
-            </div>
-        </div>
-    </div>
+  
           <!-- end of modal for delete klinik -->
     <!-- modal for bidan -->
   <div class="modal fade bd-example-modal-lg-bidan" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -224,7 +226,7 @@
                                   </p>
                               </td>
                               <td>
-                                  <button class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deletebidan"
+                                  <button class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deletebidan<?=$bid->id_bidan?>"
                                       type="button"><i class="fas fa-trash"></i>&nbsp
                                       Hapus</button>
                                   <button
@@ -233,6 +235,26 @@
                                       Ubah</button>
                               </td>
                           </tr>
+                          <div class="modal fade" id="deletebidan<?=$bid->id_bidan?>" tabindex="-1" role="dialog" aria-labelledby="deletebidan" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                                <h5 class="modal-title" id="deletebidan">Konfirmasi</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                    <i class="tim-icons icon-simple-remove"></i>
+                                                </button>
+                                        </div>
+                                        <div class="modal-body">
+                                                Apakah Yakin untuk menghapus data berikut ?
+                                        </div>
+                                        <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="window.location='<?=base_url('C_setup_bidan/delete_web/').$bid->id_bidan?>'">Hapus</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                           <?php } ?>
                       </tbody>
                   </table>
@@ -304,18 +326,40 @@
                                   </td>
                                   <td>
                                       <p class="text-center text-capitalize">
-                                          <?= $fas->status=="0"?"Aktif":"Tidak Aktif"?>
+                                          <?= $fas->status=="1"?"Aktif":"Tidak Aktif"?>
                                       </p>
                                   </td>
                                   <td>
                                       <button class="btn btn-danger btn-sm m-1" data-toggle="modal"
-                                          data-target="#deletefasilitas" type="button"><i class="fas fa-trash"></i>&nbsp
+                                          data-target="#deletefasilitas<?=$fas->id_fasilitas?>" type="button"><i class="fas fa-trash"></i>&nbsp
                                           Hapus</button>
                                       <button
                                           onclick="window.location='<?=base_url('C_setup_fasilitas/edit_web/').$fas->id_fasilitas?>'"
                                           class="btn btn-info btn-sm m-1"><i class="fas fa-edit"></i>&nbsp Ubah</button>
                                   </td>
                               </tr>
+
+                              <div class="modal fade" id="deletefasilitas<?=$fas->id_fasilitas?>" tabindex="-1" role="dialog" aria-labelledby="deletefasilitas" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                    <h5 class="modal-title" id="deletefasilitas">Konfirmasi</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                        <i class="tim-icons icon-simple-remove"></i>
+                                                    </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    Apakah Yakin untuk menghapus data berikut ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="window.location='<?=base_url('C_setup_fasilitas/delete_web/').$fas->id_fasilitas?>'">Hapus</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
                               <?php } ?>
                           </tbody>
                       </table>
@@ -326,26 +370,7 @@
   </div>
     <!-- end of modal for fasilitas klinik -->
     <!-- modal for delete fasilitas klinik -->
- <div class="modal fade" id="deletefasilitas" tabindex="-1" role="dialog" aria-labelledby="deletefasilitas" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                          <h5 class="modal-title" id="deletefasilitas">Konfirmasi</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                              <i class="tim-icons icon-simple-remove"></i>
-                          </button>
-                </div>
-                <div class="modal-body">
-                          Apakah Yakin untuk menghapus data berikut ?
-                </div>
-                <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                          <button type="button" class="btn btn-primary"
-                              onclick="window.location='<?=base_url('C_setup_fasilitas/delete_web/').$fas->id_fasilitas?>'">Hapus</button>
-                </div>
-            </div>
-        </div>
-    </div>
+ 
           <!-- end of modal for delete fasilitas klinik -->
     <!-- modal for article -->
   <div class="modal fade bd-example-modal-lg6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -390,17 +415,37 @@
                                   </td>
                                   <td>
                                       <p class="text-center text-capitalize">
-                                          <?= $artikel->status_artikel=="0"?"Aktif":"Tidak Aktif"?>
+                                          <?= $artikel->status_artikel=="1"?"Aktif":"Tidak Aktif"?>
                                       </p>
                                   </td>
                                   <td>
-                                      <button class="btn btn-danger m-1" data-toggle="modal" data-target="#deletearticle"
+                                      <button class="btn btn-danger m-1" data-toggle="modal" data-target="#deletearticle<?=$artikel->id_artikel?>"
                                           type="button"><i class="fas fa-trash"></i>&nbsp Hapus</button>
                                       <button
                                       onclick="window.location='<?=base_url('C_setup_artikel/edit_web/').$artikel->id_artikel?>'"
                                           class="btn btn-info m-1 "><i class="fas fa-edit"></i>&nbsp Ubah</button>
                                   </td>
                               </tr>
+                              <div class="modal fade" id="deletearticle<?=$artikel->id_artikel?>" tabindex="-1" role="dialog" aria-labelledby="deletearticle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                    <h5 class="modal-title" id="deletearticle">Konfirmasi</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                                        <i class="tim-icons icon-simple-remove"></i>
+                                                    </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                    Apakah Yakin untuk menghapus data berikut ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                    onclick="window.location='<?=base_url('C_setup_artikel/delete_web/').$artikel->id_artikel?>'">Hapus</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                               <?php } ?>
                           </tbody>
                       </table>
@@ -411,24 +456,5 @@
   </div>
   <!-- end of modal for article -->
   <!-- modal for delete article -->
- <div class="modal fade" id="deletearticle" tabindex="-1" role="dialog" aria-labelledby="deletearticle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                          <h5 class="modal-title" id="deletearticle">Konfirmasi</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                              <i class="tim-icons icon-simple-remove"></i>
-                          </button>
-                </div>
-                <div class="modal-body">
-                          Apakah Yakin untuk menghapus data berikut ?
-                </div>
-                <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                          <button type="button" class="btn btn-primary"
-                          onclick="window.location='<?=base_url('C_setup_artikel/delete_web/').$artikel->id_artikel?>'">Hapus</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
           <!-- end of modal for delete article -->

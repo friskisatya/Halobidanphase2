@@ -112,7 +112,7 @@
                       <div class="col-md-8">
                           <div class="row text-center flex-nowrap" style="overflow: auto;">
                           <?php foreach($rs_artikel as $artikel){?>
-                              <div class="col-5" onclick="window.location='<?=base_url('C_index/artikel/'.$artikel->id_artikel)?>'">
+                              <div class="col-5" onclick="window.location='<?=base_url('C_index/artikel_web/'.$artikel->id_artikel)?>'">
                                   <div class="card" style="width: 20rem;">
                                       <img class="card-img-top" src="<?= base_url('uploads/').$artikel->img_artikel?>"
                                           alt="Card image cap">

@@ -172,37 +172,107 @@ class C_setup_artikel extends CI_Controller {
 
     public function post_create_web()
 	{
-        $data = array(
-            // 'id_artikel'   =>$this->input->post('kode_artikel'),
-            'judul_artikel' =>$this->input->post('judul_artikel'),
-            'isi_artikel' =>$this->input->post('isi_artikel'),
-            'status_artikel'        =>$this->input->post('status_artikel'),
-        );
-        $create = $this->M_artikel->create($data);
-        if($create){
-            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
-        }else{
-            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $data = array(
+                // 'id_artikel'   =>$this->input->post('kode_artikel'),
+                'judul_artikel' =>$this->input->post('judul_artikel'),
+                'isi_artikel' =>$this->input->post('isi_artikel'),
+                'status_artikel'        =>$this->input->post('status_artikel'),
+            );
+            $create = $this->M_artikel->create($data);
+            if($create){
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan, Tetapi gambar gagal disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        else
+        {
+            // Get data about the file
+            $uploadData = $this->upload->data(); 
+            $filename = $uploadData['file_name'];
+
+            $data = array(
+                // 'id_artikel'   =>$this->input->post('kode_artikel'),
+                'judul_artikel' =>$this->input->post('judul_artikel'),
+                'isi_artikel' =>$this->input->post('isi_artikel'),
+                'status_artikel'        =>$this->input->post('status_artikel'),
+                'img_artikel' =>$filename
+            );
+            $create = $this->M_artikel->create($data);
+            if($create){
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
         }
         redirect("C_index/setup_web");
 	}
 
     public function post_edit_web($id)
 	{
-        $where = array('id_artikel'=>$id);
-        $data = array(
-            'judul_artikel' =>$this->input->post('judul_artikel'),
-            'isi_artikel' =>$this->input->post('isi_artikel'),
-            'status_artikel'        =>$this->input->post('status_artikel'),
-        );
-        $edit = $this->M_artikel->edit($data,$where);
-        if($edit){
-            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
-        }else{
-            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
-        }
+        $config['upload_path']          = './uploads/';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
 
-        redirect("C_index/setup_web");
+        $this->load->library('upload', $config);
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+            // $error = array('error' => $this->upload->display_errors());
+            // var_dump($error);die;
+            $where = array('id_artikel'=>$id);
+            $data = array(
+                // 'kode_artikel'   =>$this->input->post('kode_artikel'),
+                'judul_artikel' =>$this->input->post('judul_artikel'),
+                'isi_artikel' =>$this->input->post('isi_artikel'),
+                'status_artikel'        =>$this->input->post('status'),
+            );
+            $edit = $this->M_artikel->edit($data,$where);
+            if($edit){
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        else
+        {
+            // Get data about the file
+            $uploadData = $this->upload->data(); 
+            $filename = $uploadData['file_name'];
+
+            $where = array('id_artikel'=>$id);
+            $data = array(
+                // 'kode_artikel'   =>$this->input->post('kode_artikel'),
+                'judul_artikel' =>$this->input->post('judul_artikel'),
+                'isi_artikel' =>$this->input->post('isi_artikel'),
+                'status_artikel'        =>$this->input->post('status_artikel'),
+                'img_artikel'   =>$filename
+            );
+            $edit = $this->M_artikel->edit($data,$where);
+            if($edit){
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+            }else{
+                $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+            }
+        }
+        
+
+
+
+
+
+
+
+        
+
+        redirect("C_setup_artikel/edit_web/".$id);
 	}
 
     public function delete_web($id)
