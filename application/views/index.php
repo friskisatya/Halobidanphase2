@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-6" onclick="window.location='<?=base_url('C_index/chat_bidan')?>'">
             <div class="card bg-primary text-light" style="width: 15rem; border-radius: 5%">
-                <img class="card-img-top" src="<?= base_url()?>/assets/img/chat.png" alt="Card image cap"
+                <img class="card-img-top" src="<?= base_url()?>assets/img/123.png" alt="Card image cap"
                     style="height: 50%; weight :50px">
                 <div class="card-body m-auto p-2">
                     <h5 class="card-title text-center">Chat Dengan Bidan <br><br></h5>
@@ -28,7 +28,7 @@
 
         <div class="col-6" onclick="window.location='<?=base_url('C_index/konsultasi_klinik')?>'">
             <div class="card bg-primary text-light" style="width: 15rem; border-radius: 5%">
-                <img class="card-img-top" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image cap"
+                <img class="card-img-top" src="<?= base_url()?>assets/img/clinic.png" alt="Card image cap"
                     style="height: 50%; weight :50px">
                 <div class="card-body m-auto p-2">
                     <h5 class="card-title text-center">Konsultasi Dengan Klinik</h5>
@@ -38,7 +38,7 @@
 
         <div class="col-6" onclick="window.location='<?=base_url('C_index/kalkulator_kehamilan')?>'">
             <div class="card bg-primary text-light" style="width: 15rem; border-radius: 5%">
-                <img class="card-img-top" src="<?= base_url()?>/assets/img/calc.png" alt="Card image cap"
+                <img class="card-img-top" src="<?= base_url()?>assets/img/calc.png" alt="Card image cap"
                     style="height: 50%; weight :50px">
                 <div class="card-body m-auto p-2">
                     <h5 class="card-title text-center">Kalkulator Kehamilan <br><br></h5>
@@ -48,7 +48,7 @@
 
         <div class="col-6" onclick="window.location='<?=base_url('C_index/screening')?>'">
             <div class="card bg-primary text-light" style="width: 15rem; border-radius: 5%">
-                <img class="card-img-top" src="<?= base_url()?>/assets/img/screening.png" alt="Card image cap"
+                <img class="card-img-top" src="<?= base_url()?>assets/img/screening.png" alt="Card image cap"
                     style="height: 50%; weight :50px">
                 <div class="card-body m-auto p-2">
                     <h5 class="card-title text-center">Screening Mandiri</h5>
@@ -66,7 +66,7 @@
             <?php
             }else{
             ?>
-                <img class="card-img-top" height="180" src="<?= base_url()?>/assets/img/screening.png" alt="Card image cap">
+                <img class="card-img-top" height="180" src="<?= base_url()?>assets/img/screening.png" alt="Card image cap">
             <?php } ?>
             <div class="card-body">
                 <h4 class="card-title"><?= $artikel->judul_artikel?></h4>

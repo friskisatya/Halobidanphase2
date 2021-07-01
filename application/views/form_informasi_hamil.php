@@ -18,7 +18,7 @@
 </div>
     <?= $this->session->userdata("notif_edit");$this->session->unset_userdata("notif_edit")?>
     <?= $this->session->userdata("notif_login");$this->session->unset_userdata("notif_login")?>
-    <form action="<?=base_url('C_form_profile_hamil/post_create')?>" method="POST">
+    <form action="<?=base_url('C_form_profile_hamil/post_create')?>" method="POST" enctype="multipart/form-data">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nama">Nama Ibu Hamil</label>
@@ -90,6 +90,27 @@
                 <label for="pekerjaan">Pekerjaan</label>
                 <input required type="text" value="<?= $rs_data[0]->pekerjaan??"" ?>" name="pekerjaan" class="form-control" id="pekerjaan" placeholder="Pekerjaan">
             </div>
+
+            <div class="form-group col-md-6">
+            <span class="btn btn-raised btn-round btn-info btn-file">
+          <span class="fileinput-new">Pilih Gambar</span>
+          <input type="file" name="image" onchange="previewFile(this);"/>
+        </span>
+        <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+          <div class="fileinput-new thumbnail">
+            <?php if($rs_data[0]->img_profile!=""||$rs_data[0]->img_profile!=null){?>
+              <img id="previewImg" src="<?= base_url('uploads/').$rs_data[0]->img_profile?>" alt="pic">
+            <?php
+            }else{
+            ?>
+              <img id="previewImg" src="https://epicattorneymarketing.com/wp-content/uploads/2016/07/Headshot-Placeholder-1.png" alt="pic">
+            <?php
+            }
+            ?>
+          </div>
+          <div class="fileinput-preview fileinput-exists thumbnail"></div>
+        </div>
+            </div>
             <!-- <div class="form-group col-6">
                 <label for="cek_1">Riwayat Check Up Ke 1</label>
                 <input type="date" name="cek_1" id="cek_1" class="form-control">
@@ -105,8 +126,7 @@
             <div class="form-group col-6">
                 <label for="cek_4">Riwayat Check Up Ke 4</label>
                 <input type="date" name="cek_4" id="cek_4" class="form-control">
-            </div> -->
-            
+            </div> -->            
         </div>
         <div class="row">
         <div class="container text-center col-6">
@@ -120,3 +140,18 @@
 </div>
 </form>
 <!-- end of article -->
+<script>
+    function previewFile(input){
+        var file = $("input[type=file]").get(0).files[0];
+ 
+        if(file){
+            var reader = new FileReader();
+ 
+            reader.onload = function(){
+                $("#previewImg").attr("src", reader.result);
+            }
+ 
+            reader.readAsDataURL(file);
+        }
+    }
+    </script>

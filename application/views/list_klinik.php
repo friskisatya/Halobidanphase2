@@ -1,12 +1,19 @@
 <!-- banner application -->
 <div class="card-wrapper bg-white text-dark">
-    <img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image">
-    <div class="card-img-overlay mt-5 p-0" style="height : 35%">
-        <div class="row m-4 mb-0">            
-            <div class="col-12">
-            <h6 class="float-right btn-sm btn-info ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>  
-                    <h4 class="title"><i class="fas fa-hospital-alt"></i>&nbsp Konsultasi Dengan Klinik</h4>
-                    <p>Jangkau dan Dapatkan informasi klinik di dekat anda</p>
+<div class="row m-4">
+<div class="col-6"></div>
+<div class="col-6">
+<img class="card-img m-0 p-0" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image">
+            </div>
+        </div>
+    <div class="card-img-overlay mt-5 p-0" style="height : 25%">
+        <div class="row m-4">
+            <div class="col-8">
+                <h4 class="card-title">&nbsp Konsultasi Dengan Klinik</h4>
+                <p class="card-text"><p class="card-text">Jangkau dan Dapatkan informasi klinik di dekat anda.</p></p>
+            </div>
+            <div class="col-4">
+            <h6 class="float-right btn-sm btn-primary ml-1 bg-info" onclick="window.location='<?=base_url('C_index')?>'"><i class="fas fa-arrow-left"></i>&nbsp Back</h6>   
             </div>
         </div>
     </div>

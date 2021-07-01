@@ -20,15 +20,25 @@
     <div class="card-wrapper">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-4">
-                <img class="rounded-circle" src="<?= base_url()?>/assets/img/default-avatar.png" alt="profile">
-                <h6 class="text-dark text-center text-capitalize m-2 p-2 h5"><?=$this->session->userdata('nama')?></h6>
+            <div class="col-4 text-center">
+            <?php if($rs_data[0]->img_profile!=""||$rs_data[0]->img_profile!=null){?>
+              <img height="120px" width="120px" class="rounded-circle" src="<?= base_url('uploads/').$rs_data[0]->img_profile?>" alt="pic">
+            <?php
+            }else{
+            ?>
+              <img class="rounded-circle" src="<?= base_url()?>/assets/img/default-avatar.png" alt="profile">
+            <?php
+            }
+            ?>
+                
+                
             </div>
             <div class="col-4"></div>
         </div>
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8">
+            <h6 class="text-dark text-center text-capitalize mt-2 p-2 h5"><?=$this->session->userdata('nama')?></h6>
                 <h6 class="text-dark text-center text-capitalize m-2 h5">Usia <?= $usia?> Tahun</h6>
                 <h6 class="text-dark text-center text-capitalize m-2 p-2 h5">Usia Kandungan <?=$rs_data[0]->bln_kehamilan?> Bulan</h6>
             </div>
