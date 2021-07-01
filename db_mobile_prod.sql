@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2021 at 06:36 PM
+-- Generation Time: Jul 01, 2021 at 12:30 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -41,7 +41,7 @@ CREATE TABLE `t_artikel` (
 
 INSERT INTO `t_artikel` (`id_artikel`, `judul_artikel`, `isi_artikel`, `status_artikel`, `img_artikel`) VALUES
 (6, 'qewqeqweqwe', 'qweqweqwewqee', 1, 'asdsadUntitled.png'),
-(10, 'Kuy', 'Juy', 1, 'IMG-20210630-WA00008.jpeg');
+(11, '123123123123', '123123123', 0, 'a18.png');
 
 -- --------------------------------------------------------
 
@@ -69,7 +69,7 @@ INSERT INTO `t_bidan` (`id_bidan`, `nama_bidan`, `gelar`, `alamat_bidan`, `telp_
 (12, 'Rita Amelia', 'S.Tr.Keb.', 'Jl. Bambon Raya No. 7B, RT.01/RW.01, Beji Timur, Kec. Beji, Kota Depok, Jawa Barat 16422\r\n', '6281932392215', '2021-05-30', 'default-avatar2.png'),
 (13, 'Eta', 'S.Tr.Keb.', 'Jl. Pemuda No.2, RT.002/RW.008, Kec. Pancoran Mas, Kota Depok, Jawa Barat 16431\r\n', '6281511194198', '2021-05-30', 'default-avatar3.png'),
 (14, 'Sri Wahyuni', 'S.Tr.Keb.', 'Jl. Arjuna Raya No.1, Mekar Jaya, Kec. Sukmajaya, Kota Depok, Jawa Barat 16411\r\n', '6281380032141', '2021-05-30', 'default-avatar4.png'),
-(19, 'Friski satya', 'Amd.Keb', 'Surga', '6282130939511', '2000-06-30', 'IMG-20210630-WA000010.jpeg');
+(20, '123', 'Amd.Keb', '123', '123', '2021-07-01', 'a16.png');
 
 -- --------------------------------------------------------
 
@@ -111,7 +111,7 @@ INSERT INTO `t_fasilitas` (`id_fasilitas`, `nama_fasilitas`, `status`) VALUES
 (1, 'Tempat Tidur', 1),
 (2, 'Ruang Inkubator', 0),
 (11, 'Ruang Menyusui', 0),
-(12, 'Mushola', 0);
+(13, 'asdasdadasdasd123', 0);
 
 -- --------------------------------------------------------
 
@@ -144,10 +144,14 @@ INSERT INTO `t_klinik` (`id_klinik`, `nama_klinik`, `alamat_klinik`, `telp_klini
 (36, 'Rs Cijantungan', 'Cijantung jakarta pusat', '082346494945664555', '', 'Rumah sakit jantungan', 0, '67893682', '68937789937', 'Screenshot_2021-06-26-00-47-19-79_22e4250240c136c826b8a3b1264b092d.jpg'),
 (37, 'tes', 'tes', '13123', '', 'tes', 0, '123123123123', '123123123123', 'a4.png'),
 (38, 'tes', 'tes', '13123', '', 'tes', 0, '123123123123', '123123123123', 'a5.png'),
-(39, 'qweqwe', 'qweqwe', '1231231', '', '1qweqweqwe', 0, '1231231', '121231231', 'a6.png'),
 (40, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a7.png'),
 (41, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a8.png'),
-(42, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a9.png');
+(42, 'qwe', 'qwe', '123', '', 'qwe', 0, '123', '123', 'a9.png'),
+(43, 'qwe', 'qwe', '123', '', '123', 0, '123', '123', 'a10.png'),
+(44, 'qwe', 'qwe', '123', '', '123', 0, '123', '123', 'a11.png'),
+(45, 'qwe', 'qwe', '123', '', '123', 0, '123', '123', 'a12.png'),
+(46, 'qwe', 'qwe', '123', '', '123', 0, '123', '123', ''),
+(50, 'tes11', '1231', '1231', '', '1231', 0, '1231', '1231', 'Capture1.JPG');
 
 -- --------------------------------------------------------
 
@@ -172,7 +176,10 @@ INSERT INTO `t_klinik_anggota` (`id_klinik_anggota`, `id_klinik`, `id_bidan`, `s
 (26, 23, 12, 0),
 (27, 24, 13, 0),
 (28, 25, 14, 0),
-(51, 36, 19, 0);
+(51, 36, 19, 0),
+(52, 36, 20, 0),
+(54, 36, 21, 0),
+(55, 25, 21, 0);
 
 -- --------------------------------------------------------
 
@@ -208,7 +215,14 @@ INSERT INTO `t_klinik_fasilitas` (`id_klinik_fasilitas`, `id_klinik`, `id_fasili
 (34, 0, 3, 0),
 (35, 0, 1, 0),
 (36, 0, 1, 0),
-(47, 36, 1, 0);
+(47, 36, 1, 0),
+(48, 44, 1, 0),
+(53, 45, 1, 0),
+(54, 46, 1, 0),
+(55, 47, 1, 0),
+(56, 48, 1, 0),
+(60, 49, 1, 0),
+(64, 50, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -233,19 +247,23 @@ CREATE TABLE `t_login` (
   `pendidikan_terakhir` varchar(2000) NOT NULL,
   `gol_darah` varchar(10) NOT NULL,
   `pekerjaan` varchar(2000) NOT NULL,
-  `status_verif` int(11) DEFAULT NULL
+  `status_verif` int(11) DEFAULT NULL,
+  `img_profile` varchar(2000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `t_login`
 --
 
-INSERT INTO `t_login` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `status`, `location`, `status_admin`, `tempat_lahir`, `tgl_lahir`, `bln_kehamilan`, `agama`, `pendidikan_terakhir`, `gol_darah`, `pekerjaan`, `status_verif`) VALUES
-(1, 'friski', 'Jakarta', '081212312312', 'friskisatya@mail.com', '202cb962ac59075b964b07152d234b70', '1', 'Jakarta', 1, '', NULL, 0, '', '', '', '', 1),
-(2, 'friski', '', '82130327606', 'friskisatya5@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 1, '', NULL, 0, '', '', '', '', 1),
-(4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', 1),
-(16, '123', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1997-02-20', 7, 'Katolik', 'S1/D4', 'A', 'Karyawan Swasta ', 1),
-(17, 'Deny tri', '', '82130939511', 'denytrisaktiapps@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Bandoeng', '2021-06-30', 1, 'Islam', 'S3', 'AB', 'Doktor', 1);
+INSERT INTO `t_login` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `status`, `location`, `status_admin`, `tempat_lahir`, `tgl_lahir`, `bln_kehamilan`, `agama`, `pendidikan_terakhir`, `gol_darah`, `pekerjaan`, `status_verif`, `img_profile`) VALUES
+(1, 'friski', 'Jakarta', '081212312312', 'friskisatya@mail.com', '202cb962ac59075b964b07152d234b70', '1', 'Jakarta', 1, '', NULL, 0, '', '', '', '', 1, ''),
+(2, 'friski', '', '82130327606', 'friskisatya5@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 1, '', NULL, 0, '', '', '', '', 1, ''),
+(4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', 1, 'a19.png'),
+(17, 'Deny tri', '', '82130939511', 'denytrisaktiapps@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Bandoeng', '2021-06-30', 1, 'Islam', 'S3', 'AB', 'Doktor', 1, ''),
+(18, 'Friski', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', 1, ''),
+(19, 'Harun alrasyid anwar', '', '8119136686', 'halrasyid34@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1999-02-10', 7, 'Islam', 'SLTA/SMU/SMK', 'O', 'Pengacara', 1, 'IMG-20210608-WA0014.jpg'),
+(20, 'Harun alrasyid anwar', '', '8119136686', 'halrasyid@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, ''),
+(21, 'Satria mahardika anwar', '', '8119136686', 'satmadika223@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -303,7 +321,8 @@ INSERT INTO `t_riwayat_checkup` (`id`, `tgl_checkup`, `email`) VALUES
 (11, '2021-06-30', 'friskisatya5@gmail.com'),
 (12, '2021-06-30', 'friskisatya5@gmail.com'),
 (13, '2021-06-30', 'denytrisaktiapps@gmail.com'),
-(14, '2021-07-16', 'denytrisaktiapps@gmail.com');
+(14, '2021-07-16', 'denytrisaktiapps@gmail.com'),
+(15, '2021-07-01', 'halrasyid34@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -378,7 +397,9 @@ INSERT INTO `t_screening_history` (`id_screening_history`, `user_id`, `tanggal_s
 (16, 'test@mail.com', '2021-06-03', 98),
 (17, 'friskisatya2@gmail.com', '2021-06-26', 94),
 (18, 'friskisatya2@gmail.com', '2021-06-26', 2),
-(19, 'denytrisaktiapps@gmail.com', '2021-06-30', 6);
+(19, 'denytrisaktiapps@gmail.com', '2021-06-30', 6),
+(20, 'friskisatya5@gmail.com', '2021-07-01', 106),
+(21, 'halrasyid34@gmail.com', '2021-07-01', 122);
 
 -- --------------------------------------------------------
 
@@ -537,7 +558,67 @@ INSERT INTO `t_screening_history_detail` (`id_screening_history_detail`, `id_scr
 (262, 19, 33, 'N'),
 (263, 19, 34, 'N'),
 (264, 19, 35, 'N'),
-(265, 19, 36, 'N');
+(265, 19, 36, 'N'),
+(266, 20, 1, 'Y'),
+(267, 20, 2, 'Y'),
+(268, 20, 3, 'Y'),
+(269, 20, 4, 'Y'),
+(270, 20, 5, 'Y'),
+(271, 20, 6, 'Y'),
+(272, 20, 7, 'Y'),
+(273, 20, 8, 'Y'),
+(274, 20, 9, 'Y'),
+(275, 20, 10, 'Y'),
+(276, 20, 11, 'Y'),
+(277, 20, 12, 'Y'),
+(278, 20, 13, 'Y'),
+(279, 20, 14, 'Y'),
+(280, 20, 15, 'Y'),
+(281, 20, 16, 'Y'),
+(282, 20, 17, 'Y'),
+(283, 20, 18, 'Y'),
+(284, 20, 19, 'Y'),
+(285, 20, 20, 'Y'),
+(286, 20, 21, 'Y'),
+(287, 20, 22, 'Y'),
+(288, 20, 23, 'N'),
+(289, 20, 24, 'N'),
+(290, 20, 25, 'N'),
+(291, 20, 27, 'N'),
+(292, 20, 33, 'Y'),
+(293, 20, 34, 'Y'),
+(294, 20, 35, 'Y'),
+(295, 20, 36, 'Y'),
+(296, 21, 1, 'Y'),
+(297, 21, 2, 'Y'),
+(298, 21, 3, 'Y'),
+(299, 21, 4, 'Y'),
+(300, 21, 5, 'Y'),
+(301, 21, 6, 'Y'),
+(302, 21, 7, 'Y'),
+(303, 21, 8, 'Y'),
+(304, 21, 9, 'Y'),
+(305, 21, 10, 'Y'),
+(306, 21, 11, 'Y'),
+(307, 21, 12, 'Y'),
+(308, 21, 13, 'Y'),
+(309, 21, 14, 'Y'),
+(310, 21, 15, 'Y'),
+(311, 21, 16, 'Y'),
+(312, 21, 17, 'Y'),
+(313, 21, 18, 'Y'),
+(314, 21, 19, 'Y'),
+(315, 21, 20, 'Y'),
+(316, 21, 21, 'Y'),
+(317, 21, 22, 'Y'),
+(318, 21, 23, 'Y'),
+(319, 21, 24, 'Y'),
+(320, 21, 25, 'Y'),
+(321, 21, 27, 'Y'),
+(322, 21, 33, 'Y'),
+(323, 21, 34, 'Y'),
+(324, 21, 35, 'Y'),
+(325, 21, 36, 'Y');
 
 -- --------------------------------------------------------
 
@@ -654,7 +735,27 @@ INSERT INTO `t_survei_history` (`id`, `id_survei`, `jawaban`, `email`) VALUES
 (77, 17, 'Y', 'denytrisaktiapps@gmail.com'),
 (78, 18, 'Y', 'denytrisaktiapps@gmail.com'),
 (79, 19, 'Y', 'denytrisaktiapps@gmail.com'),
-(80, 20, 'N', 'denytrisaktiapps@gmail.com');
+(80, 20, 'N', 'denytrisaktiapps@gmail.com'),
+(81, 1, 'Y', 'halrasyid34@gmail.com'),
+(82, 2, 'Y', 'halrasyid34@gmail.com'),
+(83, 3, 'Y', 'halrasyid34@gmail.com'),
+(84, 4, 'Y', 'halrasyid34@gmail.com'),
+(85, 5, 'Y', 'halrasyid34@gmail.com'),
+(86, 6, 'Y', 'halrasyid34@gmail.com'),
+(87, 7, 'Y', 'halrasyid34@gmail.com'),
+(88, 8, 'Y', 'halrasyid34@gmail.com'),
+(89, 9, 'Y', 'halrasyid34@gmail.com'),
+(90, 10, 'Y', 'halrasyid34@gmail.com'),
+(91, 11, 'Y', 'halrasyid34@gmail.com'),
+(92, 12, 'Y', 'halrasyid34@gmail.com'),
+(93, 13, 'Y', 'halrasyid34@gmail.com'),
+(94, 14, 'Y', 'halrasyid34@gmail.com'),
+(95, 15, 'Y', 'halrasyid34@gmail.com'),
+(96, 16, 'Y', 'halrasyid34@gmail.com'),
+(97, 17, 'Y', 'halrasyid34@gmail.com'),
+(98, 18, 'Y', 'halrasyid34@gmail.com'),
+(99, 19, 'Y', 'halrasyid34@gmail.com'),
+(100, 20, 'Y', 'halrasyid34@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -782,13 +883,13 @@ ALTER TABLE `t_tentang`
 -- AUTO_INCREMENT for table `t_artikel`
 --
 ALTER TABLE `t_artikel`
-  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_artikel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `t_bidan`
 --
 ALTER TABLE `t_bidan`
-  MODIFY `id_bidan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_bidan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `t_faq`
@@ -800,37 +901,37 @@ ALTER TABLE `t_faq`
 -- AUTO_INCREMENT for table `t_fasilitas`
 --
 ALTER TABLE `t_fasilitas`
-  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `t_klinik`
 --
 ALTER TABLE `t_klinik`
-  MODIFY `id_klinik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_klinik` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `t_klinik_anggota`
 --
 ALTER TABLE `t_klinik_anggota`
-  MODIFY `id_klinik_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id_klinik_anggota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `t_klinik_fasilitas`
 --
 ALTER TABLE `t_klinik_fasilitas`
-  MODIFY `id_klinik_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id_klinik_fasilitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `t_login`
 --
 ALTER TABLE `t_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `t_riwayat_checkup`
 --
 ALTER TABLE `t_riwayat_checkup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `t_screening`
@@ -842,13 +943,13 @@ ALTER TABLE `t_screening`
 -- AUTO_INCREMENT for table `t_screening_history`
 --
 ALTER TABLE `t_screening_history`
-  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_screening_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `t_screening_history_detail`
 --
 ALTER TABLE `t_screening_history_detail`
-  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=266;
+  MODIFY `id_screening_history_detail` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=326;
 
 --
 -- AUTO_INCREMENT for table `t_survei`
@@ -860,7 +961,7 @@ ALTER TABLE `t_survei`
 -- AUTO_INCREMENT for table `t_survei_history`
 --
 ALTER TABLE `t_survei_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
 
 --
 -- AUTO_INCREMENT for table `t_tentang`
