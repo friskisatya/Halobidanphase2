@@ -17,56 +17,46 @@
     </div>
 </div>
     <div class="row justify-content">
-        <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_klinik')?>'">
-            <div class="card-wrapper ">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1 ">
-                    <h6 class="card-title">Setup Klinik</h6>
+    <div class="row">
+        <div class="col-6" onclick="window.location='<?=base_url('C_setup_klinik')?>'">
+            <div class="card bg-light text-dark" style="width: 15rem; border-radius: 5%">
+                <img class="card-img-top" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image cap"
+                    style="height: 50%; weight :50px">
+                <div class="card-body m-auto p-2">
+                    <h5 class="card-title text-center">Setup Klinik</h5>
                 </div>
             </div>
         </div>
-        <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_fasilitas')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/clinic.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Setup Fasilitas klinik</h6>
+
+        <div class="col-6" onclick="window.location='<?=base_url('C_setup_fasilitas')?>'">
+            <div class="card bg-light text-dark" style="width: 15rem; border-radius: 5%">
+                <img class="card-img-top" src="<?= base_url()?>assets/img/clinic.png" alt="Card image cap"
+                    style="height: 50%; weight :50px">
+                <div class="card-body m-auto p-2">
+                    <h5 class="card-title text-center">Setup Fasilitas klinik</h5>
                 </div>
             </div>
         </div>
-        
+
+        <div class="col-6" onclick="window.location='<?=base_url('C_setup_artikel')?>'">
+            <div class="card bg-light text-dark" style="width: 15rem; border-radius: 5%">
+                <img class="card-img-top" src="<?= base_url()?>assets/img/task.png" alt="Card image cap"
+                    style="height: 50%; weight :50px">
+                <div class="card-body m-auto p-2">
+                    <h5 class="card-title text-center">Setup Article <br><br></h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6" onclick="window.location='<?=base_url('C_setup_bidan')?>'">
+            <div class="card bg-light text-dark" style="width: 15rem; border-radius: 5%">
+                <img class="card-img-top" src="<?= base_url()?>assets/img/dokter2.png" alt="Card image cap"
+                    style="height: 50%; weight :50px">
+                <div class="card-body m-auto p-2">
+                    <h5 class="card-title text-center"><br> Setup Tenaga Kesehatan (Bidan)</h5>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row justify-content">
-    <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_artikel')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/123.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Setup Artikel</h6>
-                </div>
-            </div>
-        </div>
-        <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_bidan')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/dashboard_2.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Setup Tenaga Kesehatan (Bidan)</h6>
-                </div>
-            </div>
-        </div>
-        <!-- <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_faq')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/faq.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Setup FAQ</h6>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="btn col m-1 bg-light text-dark" onclick="window.location='<?=base_url('C_setup_tentang')?>'">
-            <div class="card-wrapper">
-            <img class="card-img-top rounded mx-auto d-block mt-1" src="<?= base_url()?>/assets/img/calc.png" alt="Card image cap" style ="width : 3rem ; height : 3rem;">
-                <div class="card-body p-1">
-                    <h6 class="card-title">Ubah Tentang Aplikasi</h6>
-                </div>
-            </div>
-        </div> -->
-    </div>
+    
 </div>
