@@ -247,6 +247,45 @@ class C_screening extends CI_Controller {
         redirect("C_screening/create_survei");
 	}
 
+    public function post_create_survei_web()
+	{
+        $data_detail=array();
+        $index_detail = 0;
+        foreach($this->input->post('pertanyaan') as $j){
+            array_push($data_detail, array(
+                'id_survei'=>$this->input->post('pertanyaan')[$index_detail],
+                'jawaban' =>$this->input->post('jawaban')[$index_detail],
+                'email'=>$this->session->userdata('email'),
+            ));
+            
+            $index_detail++;
+        }
+
+        // var_dump($data_detail);die;
+        $email =$this->session->userdata('email');
+        $cek = $this->db->query("SELECT * FROM t_survei_history where email = '$email'")->num_rows();
+        if($cek > 0){
+            $i=0;
+            foreach($this->input->post('pertanyaan') as $j){
+                $where = array("id_survei"=>$this->input->post('pertanyaan')[$i],"email"=>$email );
+                $data_edit = array("jawaban" => $this->input->post('jawaban')[$i]);
+                $this->db->where($where);
+                $create = $this->db->update('t_survei_history', $data_edit);
+                $i++;
+            }
+        }else{
+            $create = $this->db->insert_batch('t_survei_history', $data_detail);
+        }
+        
+        
+        if($create){
+            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+        }else{
+            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+        }
+        redirect("C_index/profile_web");
+	}
+
 
     public function post_edit($id)
 	{

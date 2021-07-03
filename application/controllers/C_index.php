@@ -24,6 +24,11 @@ class C_index extends CI_Controller {
 	}
     public function profile_web()
 	{
+        if ($this->session->userdata('email')=="" OR empty($this->session->userdata('email'))) {
+            $this->session->set_userdata("notif_login","<span class='login100-form-title-1'><font size='3px' color='#c80000'>Silahkan Login Terlebih Dahulu</font></span>");
+            redirect('C_login/index_web');
+        }
+
         $email = $this->session->userdata('email');
         $rs_data = $this->db->query("SELECT * FROM t_login where email ='$email'")->result();
         $birthDate = new DateTime($rs_data[0]->tgl_lahir??"");
@@ -46,7 +51,7 @@ class C_index extends CI_Controller {
 
 
 
-        $data["rs_data"] = $rs_data;
+        $data["rs_data_profile"] = $rs_data;
         $data["usia"] = $y;
         $email = $this->session->userdata("email");
         $data["rs_data"] = $this->db->query("
@@ -313,6 +318,24 @@ class C_index extends CI_Controller {
             $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
         redirect("C_profile_kehamilan");
+	}
+
+    public function post_riwayat_checkup_web()
+	{
+
+        $email = $this->session->userdata('email');
+        $data = array(
+            // 'id_faq'   =>$this->input->post('kode_faq'),
+            'tgl_checkup' =>$this->input->post('tgl_checkup'),
+            'email' =>$email,
+        );
+        $create = $this->M_form_informasi_hamil->create_riwayat($data);
+        if($create){
+            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+        }else{
+            $this->session->set_userdata("notif_insert","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
+        }
+        redirect("C_index/profile_web");
 	}
 
     public function post_riwayat_checkup_wa()
