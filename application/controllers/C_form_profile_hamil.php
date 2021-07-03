@@ -62,13 +62,35 @@ class C_form_profile_hamil extends CI_Controller {
                 'pekerjaan' =>$this->input->post('pekerjaan'),
                 'img_profile'   =>$filename
             );
+        
             $edit = $this->M_form_informasi_hamil->edit($data,$where);
             if($edit){
                 $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
             }else{
                 $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
             }
+    }else{
+
+        $where = array('email'=>$this->session->userdata('email'));
+        $data = array(
+            // 'id_faq'   =>$this->input->post('kode_faq'),
+            'nama' =>$this->input->post('nama'),
+            'tempat_lahir' =>$this->input->post('tempat_lahir'),
+            'tgl_lahir' =>$this->input->post('tgl_lahir'),
+            'bln_kehamilan' =>$this->input->post('bln_kehamilan'),
+            'agama' =>$this->input->post('agama'),
+            'pendidikan_terakhir' =>$this->input->post('pendidikan_terakhir'),
+            'gol_darah' =>$this->input->post('gol_darah'),
+            'pekerjaan' =>$this->input->post('pekerjaan'),
+            //'img_profile'   =>$filename
+        );
+        $edit = $this->M_form_informasi_hamil->edit($data,$where);
+        if($edit){
+            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='green'>Data Berhasil Disimpan</font></span>");
+        }else{
+            $this->session->set_userdata("notif_edit","<span class='login100-form-title-1'><font size='3px' color='red'>Data tidak Berhasil disimpan</font></span>");
         }
+    }
         
         redirect("C_form_profile_hamil");
 	}
