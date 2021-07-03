@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 12:30 PM
+-- Generation Time: Jul 03, 2021 at 08:50 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.2.34
 
@@ -260,10 +260,11 @@ INSERT INTO `t_login` (`id`, `nama`, `alamat`, `no_telp`, `email`, `password`, `
 (2, 'friski', '', '82130327606', 'friskisatya5@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 1, '', NULL, 0, '', '', '', '', 1, ''),
 (4, 'friski', '', '82130327606', 'test@mail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakata', '1998-06-08', 9, 'Khonghucu', 'S3', 'O', 'Karyawan', 1, 'a19.png'),
 (17, 'Deny tri', '', '82130939511', 'denytrisaktiapps@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Bandoeng', '2021-06-30', 1, 'Islam', 'S3', 'AB', 'Doktor', 1, ''),
-(18, 'Friski', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', 1, ''),
+(18, 'Friski Satya', '', '123', 'friskisatya2@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'qwe', '2021-07-12', 9, 'Khonghucu', 'S3', 'O', 'qwe', 1, 'a20.png'),
 (19, 'Harun alrasyid anwar', '', '8119136686', 'halrasyid34@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, 'Jakarta', '1999-02-10', 7, 'Islam', 'SLTA/SMU/SMK', 'O', 'Pengacara', 1, 'IMG-20210608-WA0014.jpg'),
 (20, 'Harun alrasyid anwar', '', '8119136686', 'halrasyid@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, ''),
-(21, 'Satria mahardika anwar', '', '8119136686', 'satmadika223@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, '');
+(21, 'Satria mahardika anwar', '', '8119136686', 'satmadika223@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, ''),
+(22, 'Riski', '', '8119136686', 'rislia234@gmail.com', '202cb962ac59075b964b07152d234b70', '1', '', 0, '', NULL, 0, '', '', '', '', NULL, '');
 
 -- --------------------------------------------------------
 
@@ -322,7 +323,9 @@ INSERT INTO `t_riwayat_checkup` (`id`, `tgl_checkup`, `email`) VALUES
 (12, '2021-06-30', 'friskisatya5@gmail.com'),
 (13, '2021-06-30', 'denytrisaktiapps@gmail.com'),
 (14, '2021-07-16', 'denytrisaktiapps@gmail.com'),
-(15, '2021-07-01', 'halrasyid34@gmail.com');
+(15, '2021-07-01', 'halrasyid34@gmail.com'),
+(16, '2021-07-08', 'friskisatya2@gmail.com'),
+(17, '2021-07-15', 'friskisatya2@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -697,25 +700,25 @@ INSERT INTO `t_survei_history` (`id`, `id_survei`, `jawaban`, `email`) VALUES
 (39, 19, 'Y', 'test@mail.com'),
 (40, 20, 'Y', 'test@mail.com'),
 (41, 1, 'N', 'friskisatya2@gmail.com'),
-(42, 2, 'Y', 'friskisatya2@gmail.com'),
-(43, 3, 'Y', 'friskisatya2@gmail.com'),
-(44, 4, 'Y', 'friskisatya2@gmail.com'),
-(45, 5, 'Y', 'friskisatya2@gmail.com'),
-(46, 6, 'Y', 'friskisatya2@gmail.com'),
-(47, 7, 'Y', 'friskisatya2@gmail.com'),
-(48, 8, 'Y', 'friskisatya2@gmail.com'),
-(49, 9, 'Y', 'friskisatya2@gmail.com'),
-(50, 10, 'Y', 'friskisatya2@gmail.com'),
-(51, 11, 'Y', 'friskisatya2@gmail.com'),
-(52, 12, 'Y', 'friskisatya2@gmail.com'),
-(53, 13, 'Y', 'friskisatya2@gmail.com'),
-(54, 14, 'Y', 'friskisatya2@gmail.com'),
-(55, 15, 'Y', 'friskisatya2@gmail.com'),
-(56, 16, 'Y', 'friskisatya2@gmail.com'),
-(57, 17, 'Y', 'friskisatya2@gmail.com'),
-(58, 18, 'Y', 'friskisatya2@gmail.com'),
-(59, 19, 'Y', 'friskisatya2@gmail.com'),
-(60, 20, 'Y', 'friskisatya2@gmail.com'),
+(42, 2, 'N', 'friskisatya2@gmail.com'),
+(43, 3, 'N', 'friskisatya2@gmail.com'),
+(44, 4, 'N', 'friskisatya2@gmail.com'),
+(45, 5, 'N', 'friskisatya2@gmail.com'),
+(46, 6, 'N', 'friskisatya2@gmail.com'),
+(47, 7, 'N', 'friskisatya2@gmail.com'),
+(48, 8, 'N', 'friskisatya2@gmail.com'),
+(49, 9, 'N', 'friskisatya2@gmail.com'),
+(50, 10, 'N', 'friskisatya2@gmail.com'),
+(51, 11, 'N', 'friskisatya2@gmail.com'),
+(52, 12, 'N', 'friskisatya2@gmail.com'),
+(53, 13, 'N', 'friskisatya2@gmail.com'),
+(54, 14, 'N', 'friskisatya2@gmail.com'),
+(55, 15, 'N', 'friskisatya2@gmail.com'),
+(56, 16, 'N', 'friskisatya2@gmail.com'),
+(57, 17, 'N', 'friskisatya2@gmail.com'),
+(58, 18, 'N', 'friskisatya2@gmail.com'),
+(59, 19, 'N', 'friskisatya2@gmail.com'),
+(60, 20, 'N', 'friskisatya2@gmail.com'),
 (61, 1, 'N', 'denytrisaktiapps@gmail.com'),
 (62, 2, 'N', 'denytrisaktiapps@gmail.com'),
 (63, 3, 'N', 'denytrisaktiapps@gmail.com'),
@@ -925,13 +928,13 @@ ALTER TABLE `t_klinik_fasilitas`
 -- AUTO_INCREMENT for table `t_login`
 --
 ALTER TABLE `t_login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `t_riwayat_checkup`
 --
 ALTER TABLE `t_riwayat_checkup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `t_screening`
